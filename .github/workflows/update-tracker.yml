@@ -1,0 +1,60 @@
+name: Update repo tracker
+
+on:
+  schedule:
+    - cron: "37 0 * * *"   # daily at 06:07 IST (00:37 UTC)
+  workflow_dispatch:        # "Run workflow" button for a manual refresh
+  push:
+    branches: [main]
+    paths:
+      - "docs/index.html"
+      - "scripts/**"
+      - ".github/workflows/update-tracker.yml"
+
+permissions:
+  contents: write   # commit refreshed README.md and docs/data.json
+  pages: write      # deploy the dashboard
+  id-token: write   # required by deploy-pages
+
+concurrency:
+  group: repo-tracker
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect repo data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STALE_DAYS: "180"
+        run: python scripts/update_tracker.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md docs/data.json
+          git diff --cached --quiet || git commit -m "Update repo tracker [skip ci]"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

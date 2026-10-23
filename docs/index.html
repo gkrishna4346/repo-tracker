@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repo Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --border: #e3e6eb; --text: #161a20; --muted: #5d6673;
+    --accent: #2f5bd3;
+    --done: #1f8a4c; --done-bg: #e5f4ec;
+    --prog: #b26b00; --prog-bg: #fbf0dc;
+    --fix: #c2362b; --fix-bg: #fbe6e4;
+    --none: #6b7280; --none-bg: #eef0f3;
+    --shadow: 0 1px 2px rgba(16,24,40,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216; --surface: #171b21; --border: #262c35; --text: #e7eaee; --muted: #929aa6;
+      --accent: #7aa2ff;
+      --done: #4cc38a; --done-bg: #12291e;
+      --prog: #f0b44c; --prog-bg: #2d2412;
+      --fix: #f2766b; --fix-bg: #2e1715;
+      --none: #a1a8b3; --none-bg: #1f242b;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, sans-serif; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
+  h1 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow);
+          cursor: pointer; text-align: left; color: inherit; font: inherit; }
+  .stat[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .stat .n { font-size: 26px; font-weight: 700; font-family: "JetBrains Mono", monospace; }
+  .stat .l { font-size: 12.5px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--none-bg); margin-bottom: 20px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .controls input, .controls select { background: var(--surface); color: var(--text); border: 1px solid var(--border);
+          border-radius: 8px; padding: 9px 12px; font: inherit; font-size: 14px; }
+  .controls input { flex: 1; min-width: 200px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow);
+          display: flex; flex-direction: column; gap: 10px; }
+  .card-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+  .card a.name { color: var(--text); font-weight: 600; text-decoration: none; word-break: break-word; }
+  .card a.name:hover { color: var(--accent); }
+  .desc { color: var(--muted); font-size: 13.5px; margin: 0; }
+  .pill { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .s-completed { color: var(--done); background: var(--done-bg); }
+  .s-in-progress { color: var(--prog); background: var(--prog-bg); }
+  .s-needs-improvement { color: var(--fix); background: var(--fix-bg); }
+  .s-untagged { color: var(--none); background: var(--none-bg); }
+  .meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
+  .warn { display: flex; flex-wrap: wrap; gap: 6px; }
+  .warn span { font-size: 12px; color: var(--fix); border: 1px solid var(--fix-bg); background: var(--fix-bg); padding: 1px 8px; border-radius: 6px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { font-size: 12px; color: var(--accent); }
+  .empty, .err { text-align: center; color: var(--muted); padding: 48px 0; }
+  footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); }
+  code { font-family: "JetBrains Mono", monospace; font-size: 12px; background: var(--none-bg); padding: 1px 5px; border-radius: 4px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } .stats .stat:first-child { grid-column: span 2; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="title">Repo Tracker</h1>
+      <div class="sub" id="updated">Loading…</div>
+    </div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+  <div class="bar" id="bar"></div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search name, description, language, topic…">
+    <select id="sort">
+      <option value="status">Sort: status</option>
+      <option value="pushed">Sort: last push</option>
+      <option value="name">Sort: name</option>
+      <option value="created">Sort: created</option>
+    </select>
+    <select id="health">
+      <option value="all">All health</option>
+      <option value="warn">Has warnings</option>
+      <option value="ok">No warnings</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    Status comes from repo topics: <code>status-completed</code>, <code>status-in-progress</code>,
+    <code>status-needs-improvement</code>. Refreshed daily by GitHub Actions. Archived repos are excluded.
+  </footer>
+</div>
+
+<script>
+const LABELS = { "completed": "Completed", "in-progress": "In progress", "needs-improvement": "Needs improvement", "untagged": "Not tagged" };
+const COLORS = { "completed": "var(--done)", "in-progress": "var(--prog)", "needs-improvement": "var(--fix)", "untagged": "var(--none)" };
+const ORDER = ["needs-improvement", "in-progress", "untagged", "completed"];
+let DATA = null, statusFilter = "all";
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const ago = d => {
+  if (d == null) return "—";
+  if (d === 0) return "today";
+  if (d < 31) return d + "d ago";
+  if (d < 365) return Math.round(d / 30) + "mo ago";
+  return (d / 365).toFixed(1) + "y ago";
+};
+
+function renderStats() {
+  const c = DATA.counts;
+  const items = [["all", "Total", c.total, "var(--accent)"], ...["completed", "in-progress", "needs-improvement", "untagged"].map(s => [s, LABELS[s], c[s], COLORS[s]])];
+  document.getElementById("stats").innerHTML = items.map(([k, l, n, col]) =>
+    `<button class="stat" data-k="${k}" aria-pressed="${statusFilter === k}">
+       <div class="n">${n}</div><div class="l"><span class="dot" style="background:${col}"></span>${l}</div>
+     </button>`).join("");
+  document.querySelectorAll(".stat").forEach(b => b.onclick = () => {
+    statusFilter = statusFilter === b.dataset.k ? "all" : b.dataset.k;
+    renderStats(); renderGrid();
+  });
+  document.getElementById("bar").innerHTML = c.total ? ["completed", "in-progress", "needs-improvement", "untagged"]
+    .map(s => `<div title="${LABELS[s]}: ${c[s]}" style="width:${c[s] / c.total * 100}%;background:${COLORS[s]}"></div>`).join("") : "";
+}
+
+function renderGrid() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const sort = document.getElementById("sort").value;
+  const health = document.getElementById("health").value;
+  let rows = DATA.repos.filter(r =>
+    (statusFilter === "all" || r.status === statusFilter) &&
+    (health === "all" || (health === "warn" ? r.warnings.length : !r.warnings.length)) &&
+    (!q || [r.name, r.description, r.language, ...r.topics].join(" ").toLowerCase().includes(q)));
+  const by = {
+    status: (a, b) => ORDER.indexOf(a.status) - ORDER.indexOf(b.status) || a.name.localeCompare(b.name),
+    pushed: (a, b) => (b.pushed_at || "").localeCompare(a.pushed_at || ""),
+    created: (a, b) => (b.created_at || "").localeCompare(a.created_at || ""),
+    name: (a, b) => a.name.localeCompare(b.name),
+  };
+  rows.sort(by[sort]);
+  const grid = document.getElementById("grid");
+  if (!rows.length) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1">No repos match.</div>`; return; }
+  grid.innerHTML = rows.map(r => `
+    <article class="card">
+      <div class="card-top">
+        <a class="name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>
+        <span class="pill s-${r.status}">${LABELS[r.status]}</span>
+      </div>
+      ${r.description ? `<p class="desc">${esc(r.description)}</p>` : ""}
+      <div class="meta">
+        <span>${esc(r.language)}</span>
+        <span title="Last push">⟳ ${ago(r.days_since_push)}</span>
+        <span title="Stars">★ ${r.stars}</span>
+        <span title="Open issues">◎ ${r.open_issues}</span>
+        ${r.is_fork ? "<span>fork</span>" : ""}
+      </div>
+      ${r.topics.length ? `<div class="tags">${r.topics.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
+      ${r.warnings.length ? `<div class="warn">${r.warnings.map(w => `<span>${esc(w)}</span>`).join("")}</div>` : ""}
+    </article>`).join("");
+}
+
+fetch("data.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    DATA = d;
+    document.getElementById("title").textContent = `${d.owner}'s Repo Tracker`;
+    document.title = `${d.owner} · Repo Tracker`;
+    document.getElementById("updated").textContent =
+      `Last updated ${new Date(d.generated_at).toLocaleString()} · ${d.counts.total} repos`;
+    renderStats(); renderGrid();
+    ["q", "sort", "health"].forEach(id => document.getElementById(id).addEventListener("input", renderGrid));
+  })
+  .catch(() => {
+    document.getElementById("updated").textContent = "";
+    document.getElementById("grid").innerHTML =
+      `<div class="err" style="grid-column:1/-1">No data yet. Run the “Update repo tracker” workflow from the Actions tab.</div>`;
+  });
+</script>
+</body>
+</html>
