@@ -1,11 +1,11 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-10-24T07:21:19+00:00",
+  "generated_at": "2026-10-24T07:27:19+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 5,
-    "in-progress": 3,
-    "untagged": 1,
+    "in-progress": 4,
+    "untagged": 0,
     "completed": 50,
     "total": 59
   },
@@ -28,17 +28,17 @@
       "untagged": 0,
       "completed": 9
     },
+    "AIML Hobby": {
+      "needs-improvement": 0,
+      "in-progress": 1,
+      "untagged": 0,
+      "completed": 0
+    },
     "Dev Tools": {
       "needs-improvement": 0,
       "in-progress": 1,
       "untagged": 0,
       "completed": 1
-    },
-    "Uncategorized": {
-      "needs-improvement": 0,
-      "in-progress": 0,
-      "untagged": 1,
-      "completed": 0
     },
     "AIML Academic": {
       "needs-improvement": 0,
@@ -251,34 +251,11 @@
       ]
     },
     {
-      "name": "repo-tracker",
-      "url": "https://github.com/gkrishna4346/repo-tracker",
-      "description": "",
-      "status": "in-progress",
-      "category": "Dev Tools",
-      "topics": [],
-      "language": "Python",
-      "stars": 0,
-      "forks": 0,
-      "open_issues": 0,
-      "is_fork": false,
-      "live_url": "https://gkrishna4346.github.io/repo-tracker/",
-      "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-10-24T07:19:48Z",
-      "days_since_push": 0,
-      "has_readme": true,
-      "license": "",
-      "warnings": [
-        "No description",
-        "No license"
-      ]
-    },
-    {
       "name": "qubism",
       "url": "https://github.com/gkrishna4346/qubism",
       "description": "",
-      "status": "untagged",
-      "category": "Uncategorized",
+      "status": "in-progress",
+      "category": "AIML Hobby",
       "topics": [],
       "language": "HTML",
       "stars": 0,
@@ -293,6 +270,29 @@
       "license": "",
       "warnings": [
         "No README",
+        "No description",
+        "No license"
+      ]
+    },
+    {
+      "name": "repo-tracker",
+      "url": "https://github.com/gkrishna4346/repo-tracker",
+      "description": "",
+      "status": "in-progress",
+      "category": "Dev Tools",
+      "topics": [],
+      "language": "Python",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://gkrishna4346.github.io/repo-tracker/",
+      "created_at": "2026-10-23T16:22:41Z",
+      "pushed_at": "2026-10-24T07:25:31Z",
+      "days_since_push": 0,
+      "has_readme": true,
+      "license": "",
+      "warnings": [
         "No description",
         "No license"
       ]
