@@ -8,7 +8,7 @@ OWNER="${OWNER:-gkrishna4346}"
 CSV="$(dirname "$0")/repo-tags.csv"
 DRY=""; [[ "${1:-}" == "--dry-run" ]] && DRY=1
 slug() { printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/^[[:space:]]+|[[:space:]]+$//g; s/[[:space:]_]+/-/g'; }
-perl -pe 's/\r\n?/\n/g; s/^\x{EF}\x{BB}\x{BF}//' "$CSV" | tail -n +2 | while IFS=, read -r repo category status _; do
+perl -pe 's/\r\n?/\n/g; s/^\x{EF}\x{BB}\x{BF}//' "$CSV" | tail -n +2 | while IFS=, read -r repo category status _ || [[ -n "$repo" ]]; do
   repo=$(printf '%s' "$repo" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')
   [[ -z "$repo" ]] && continue
   s=$(slug "$status")
