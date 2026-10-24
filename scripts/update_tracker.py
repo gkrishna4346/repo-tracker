@@ -8,6 +8,9 @@ Status comes from repo topics:
   status-completed | status-in-progress | status-needs-improvement
 Repos without one of these topics are shown as "Not tagged".
 
+Category comes from a topic starting with "cat-", e.g. cat-ml-project -> "ML Project".
+Live link = the repo's Website field (About > Website), or its GitHub Pages URL.
+
 Standard library only, so no pip install is needed.
 """
 import json
@@ -30,6 +33,8 @@ STATUS_TOPICS = {
     "status-needs-improvement": "needs-improvement",
 }
 STATUS_ORDER = ["needs-improvement", "in-progress", "untagged", "completed"]
+CATEGORY_PREFIX = "cat-"
+ACRONYMS = {"ml", "ai", "nlp", "llm", "sql", "vba", "ui", "api", "eda", "bi"}
 README_LABELS = {
     "completed": "✅ Completed",
     "in-progress": "🚧 In progress",
@@ -78,9 +83,29 @@ def days_since(iso):
     return (datetime.now(timezone.utc) - dt).days
 
 
+def category_label(topic):
+    words = topic[len(CATEGORY_PREFIX):].split("-")
+    return " ".join(w.upper() if w in ACRONYMS else w.capitalize() for w in words)
+
+
+def live_url(repo):
+    home = (repo.get("homepage") or "").strip()
+    if home:
+        return home if home.startswith("http") else "https://" + home
+    if repo.get("has_pages"):
+        owner = repo["owner"]["login"].lower()
+        name = repo["name"]
+        if name.lower() == f"{owner}.github.io":
+            return f"https://{owner}.github.io/"
+        return f"https://{owner}.github.io/{name}/"
+    return ""
+
+
 def build_record(repo):
     topics = repo.get("topics") or []
     status = next((STATUS_TOPICS[t] for t in topics if t in STATUS_TOPICS), "untagged")
+    cat_topic = next((t for t in topics if t.startswith(CATEGORY_PREFIX)), None)
+    category = category_label(cat_topic) if cat_topic else "Uncategorized"
     has_readme = api_get(f"/repos/{repo['full_name']}/readme") is not None
     idle = days_since(repo.get("pushed_at"))
 
@@ -99,13 +124,14 @@ def build_record(repo):
         "url": repo["html_url"],
         "description": repo.get("description") or "",
         "status": status,
-        "topics": [t for t in topics if t not in STATUS_TOPICS],
+        "category": category,
+        "topics": [t for t in topics if t not in STATUS_TOPICS and not t.startswith(CATEGORY_PREFIX)],
         "language": repo.get("language") or "—",
         "stars": repo.get("stargazers_count", 0),
         "forks": repo.get("forks_count", 0),
         "open_issues": repo.get("open_issues_count", 0),
         "is_fork": repo.get("fork", False),
-        "homepage": repo.get("homepage") or "",
+        "live_url": live_url(repo),
         "created_at": repo.get("created_at"),
         "pushed_at": repo.get("pushed_at"),
         "days_since_push": idle,
@@ -123,16 +149,17 @@ def render_readme_table(data):
         f"✅ {counts['completed']} · 🚧 {counts['in-progress']} · "
         f"🛠️ {counts['needs-improvement']} · ❔ {counts['untagged']}_",
         "",
-        "| Repository | Status | Language | Last push | Health |",
-        "|---|---|---|---|---|",
+        "| Repository | Category | Status | Live | Last push | Health |",
+        "|---|---|---|---|---|---|",
     ]
     for r in data["repos"]:
         pushed = (r["pushed_at"] or "")[:10] or "—"
         health = ", ".join(r["warnings"]) if r["warnings"] else "OK"
         desc = r["description"].replace("|", "\\|")
         name = f"[{r['name']}]({r['url']})" + (f"<br><sub>{desc}</sub>" if desc else "")
+        live = f"[Open ↗]({r['live_url']})" if r["live_url"] else "—"
         lines.append(
-            f"| {name} | {README_LABELS[r['status']]} | {r['language']} | {pushed} | {health} |"
+            f"| {name} | {r['category']} | {README_LABELS[r['status']]} | {live} | {pushed} | {health} |"
         )
     return "\n".join(lines)
 
@@ -163,11 +190,17 @@ def main():
         counts[r["status"]] += 1
     counts["total"] = len(repos)
 
+    categories = {}
+    for r in repos:
+        c = categories.setdefault(r["category"], {s: 0 for s in STATUS_ORDER})
+        c[r["status"]] += 1
+
     data = {
         "owner": OWNER,
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "stale_days": STALE_DAYS,
         "counts": counts,
+        "categories": categories,
         "repos": repos,
     }
 

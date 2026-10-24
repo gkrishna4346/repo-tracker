@@ -4,68 +4,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Repo Tracker</title>
+<script>
+  // Apply saved theme before first paint (falls back to the system setting).
+  try { const t = localStorage.getItem("rt-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* ---------- Theme tokens ---------- */
   :root {
-    --bg: #f6f7f9; --surface: #ffffff; --border: #e3e6eb; --text: #161a20; --muted: #5d6673;
-    --accent: #2f5bd3;
-    --done: #1f8a4c; --done-bg: #e5f4ec;
-    --prog: #b26b00; --prog-bg: #fbf0dc;
-    --fix: #c2362b; --fix-bg: #fbe6e4;
-    --none: #6b7280; --none-bg: #eef0f3;
-    --shadow: 0 1px 2px rgba(16,24,40,.05);
+    /* Light: light blue background, dark navy text */
+    --bg: #e6f0fb; --surface: #ffffff; --surface-2: #f2f7fe; --border: #c9dbf2;
+    --text: #0a1f44; --muted: #4a5f82; --accent: #1d5fd1; --title: #c65f00;
+    --row-hover: #eef5ff; --track: #dbe7f6; --shadow: 0 1px 2px rgba(10,31,68,.06);
+    --s-completed: #0ca30c; --s-in-progress: #fab219; --s-needs-improvement: #d03b3b; --s-untagged: #94a3b8;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    /* Dark: dark navy background, white text */
+    --bg: #0a1a33; --surface: #10264a; --surface-2: #0d2142; --border: #21406f;
+    --text: #ffffff; --muted: #b3c3dd; --accent: #7cb5ff; --title: #ff8c00;
+    --row-hover: #143058; --track: #1a3560; --shadow: none;
+    --s-untagged: #7d8ca3;
+    color-scheme: dark;
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0f1216; --surface: #171b21; --border: #262c35; --text: #e7eaee; --muted: #929aa6;
-      --accent: #7aa2ff;
-      --done: #4cc38a; --done-bg: #12291e;
-      --prog: #f0b44c; --prog-bg: #2d2412;
-      --fix: #f2766b; --fix-bg: #2e1715;
-      --none: #a1a8b3; --none-bg: #1f242b;
-      --shadow: none;
+    :root:not([data-theme="light"]) {
+      --bg: #0a1a33; --surface: #10264a; --surface-2: #0d2142; --border: #21406f;
+      --text: #ffffff; --muted: #b3c3dd; --accent: #7cb5ff; --title: #ff8c00;
+      --row-hover: #143058; --track: #1a3560; --shadow: none;
+      --s-untagged: #7d8ca3;
+      color-scheme: dark;
     }
   }
+
+  /* ---------- Base ---------- */
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, sans-serif; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
-  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
-  h1 { margin: 0; font-size: 26px; letter-spacing: -.02em; }
-  .sub { color: var(--muted); font-size: 13px; }
-  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
-  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow);
-          cursor: pointer; text-align: left; color: inherit; font: inherit; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 14.5px/1.5 Inter, system-ui, sans-serif; transition: background .2s, color .2s; }
+  a { color: var(--accent); }
+  .wrap { width: 100%; max-width: 1600px; margin: 0 auto; padding: 28px clamp(16px, 2.5vw, 32px) 56px; }
+  .num { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  button { font: inherit; color: inherit; }
+
+  /* ---------- Header ---------- */
+  header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 22px; }
+  h1 { margin: 0; font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; letter-spacing: -.02em; color: var(--title); }
+  .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .hdr-actions { display: flex; gap: 10px; align-items: center; }
+  .seg { display: inline-flex; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 3px; }
+  .seg button { border: 0; background: transparent; padding: 6px 12px; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--muted); }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  :root[data-theme="dark"] .seg button[aria-pressed="true"] { color: #0a1a33; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seg button[aria-pressed="true"] { color: #0a1a33; } }
+  .icon-btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+  .icon-btn svg { width: 18px; height: 18px; }
+
+  /* ---------- KPI tiles ---------- */
+  .stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); cursor: pointer; text-align: left; }
+  .stat:hover { border-color: var(--accent); }
   .stat[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: -1px; }
-  .stat .n { font-size: 26px; font-weight: 700; font-family: "JetBrains Mono", monospace; }
-  .stat .l { font-size: 12.5px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
-  .bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--none-bg); margin-bottom: 20px; }
-  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
-  .controls input, .controls select { background: var(--surface); color: var(--text); border: 1px solid var(--border);
-          border-radius: 8px; padding: 9px 12px; font: inherit; font-size: 14px; }
-  .controls input { flex: 1; min-width: 200px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow);
-          display: flex; flex-direction: column; gap: 10px; }
-  .card-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
-  .card a.name { color: var(--text); font-weight: 600; text-decoration: none; word-break: break-word; }
+  .stat .n { font-size: 28px; font-weight: 600; line-height: 1.15; }
+  .stat .l { font-size: 12.5px; color: var(--muted); display: flex; align-items: center; gap: 7px; margin-top: 2px; }
+  .sw { width: 10px; height: 10px; border-radius: 3px; flex: none; display: inline-block; }
+
+  /* ---------- Charts ---------- */
+  .charts { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(0, 2.2fr); gap: 12px; margin-bottom: 16px; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); position: relative; min-width: 0; }
+  .panel h2 { margin: 0 0 2px; font-size: 14px; font-weight: 600; }
+  .panel .hint { color: var(--muted); font-size: 12.5px; margin: 0 0 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .charts .panel:first-child { display: flex; flex-direction: column; }
+  .donut-wrap { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; flex: 1; }
+  .donut-wrap svg { width: 168px; height: 168px; flex: none; }
+  .donut-list { display: grid; gap: 6px; font-size: 13px; flex: 1; min-width: 150px; }
+  .donut-list div { display: flex; align-items: center; gap: 8px; }
+  .donut-list .num { margin-left: auto; color: var(--muted); }
+  .cat-rows { display: grid; gap: 8px; }
+  .cat-row { display: grid; grid-template-columns: minmax(90px, 170px) minmax(0, 1fr) 36px; align-items: center; gap: 10px; cursor: pointer; border-radius: 6px; padding: 2px 4px; }
+  .cat-row:hover, .cat-row.active { background: var(--row-hover); }
+  .cat-row .cl { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cat-row .ct { font-size: 12.5px; color: var(--muted); text-align: right; }
+  .bar { display: flex; gap: 2px; height: 14px; }
+  .bar i { display: block; height: 100%; min-width: 3px; }
+  .bar i:first-child { border-radius: 4px 0 0 4px; } .bar i:last-child { border-radius: 0 4px 4px 0; } .bar i:only-child { border-radius: 4px; }
+  .tip { position: fixed; pointer-events: none; z-index: 20; background: var(--text); color: var(--bg); font-size: 12.5px; padding: 6px 9px; border-radius: 7px; opacity: 0; transition: opacity .1s; white-space: nowrap; }
+  .empty-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+
+  /* ---------- Controls ---------- */
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; align-items: center; }
+  .controls input, .controls select { background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; font: inherit; font-size: 14px; }
+  .controls input { flex: 1; min-width: 220px; }
+  .controls .count { color: var(--muted); font-size: 13px; margin-left: auto; }
+
+  /* ---------- Table ---------- */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: auto; box-shadow: var(--shadow); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  thead th { position: sticky; top: 0; background: var(--surface-2); text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  thead th[data-k] { cursor: pointer; user-select: none; }
+  thead th[data-k]:hover { color: var(--text); }
+  thead th .arr { opacity: .8; margin-left: 4px; }
+  tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover { background: var(--row-hover); }
+  td.repo a { font-weight: 600; color: var(--text); text-decoration: none; }
+  td.repo a:hover { color: var(--accent); text-decoration: underline; }
+  td.repo .d { color: var(--muted); font-size: 12.5px; margin-top: 2px; max-width: 460px; }
+  td.nowrap { white-space: nowrap; }
+  .status { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; white-space: nowrap; }
+  .status .ic { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #fff; flex: none; }
+  .status.s-in-progress .ic { color: #0b0b0b; }
+  .chip { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--border); white-space: nowrap; }
+  .live { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .live:hover { text-decoration: underline; }
+  .warn { display: flex; flex-wrap: wrap; gap: 4px; }
+  .warn span { font-size: 11.5px; padding: 1px 7px; border-radius: 5px; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
+  .ok { color: var(--muted); font-size: 12.5px; }
+  .muted { color: var(--muted); }
+
+  /* ---------- Cards ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--shadow); }
+  .card-top { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+  .card a.name { font-weight: 600; color: var(--text); text-decoration: none; word-break: break-word; }
   .card a.name:hover { color: var(--accent); }
-  .desc { color: var(--muted); font-size: 13.5px; margin: 0; }
-  .pill { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
-  .s-completed { color: var(--done); background: var(--done-bg); }
-  .s-in-progress { color: var(--prog); background: var(--prog-bg); }
-  .s-needs-improvement { color: var(--fix); background: var(--fix-bg); }
-  .s-untagged { color: var(--none); background: var(--none-bg); }
-  .meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
-  .warn { display: flex; flex-wrap: wrap; gap: 6px; }
-  .warn span { font-size: 12px; color: var(--fix); border: 1px solid var(--fix-bg); background: var(--fix-bg); padding: 1px 8px; border-radius: 6px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tags span { font-size: 12px; color: var(--accent); }
-  .empty, .err { text-align: center; color: var(--muted); padding: 48px 0; }
-  footer { margin-top: 32px; font-size: 12.5px; color: var(--muted); }
-  code { font-family: "JetBrains Mono", monospace; font-size: 12px; background: var(--none-bg); padding: 1px 5px; border-radius: 4px; }
-  @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } .stats .stat:first-child { grid-column: span 2; } }
+  .card .meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12.5px; color: var(--muted); }
+
+  .empty { text-align: center; color: var(--muted); padding: 48px 16px; }
+  footer { margin-top: 28px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+  code { font-family: "JetBrains Mono", monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); padding: 0 5px; border-radius: 4px; }
+
+  @media (max-width: 1000px) { .charts { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stats .stat:first-child { grid-column: span 2; }
+    .controls .count { width: 100%; margin-left: 0; }
+  }
 </style>
 </head>
 <body>
@@ -75,115 +151,287 @@
       <h1 id="title">Repo Tracker</h1>
       <div class="sub" id="updated">Loading…</div>
     </div>
+    <div class="hdr-actions">
+      <div class="seg" role="group" aria-label="View">
+        <button data-view="table" aria-pressed="true">Table</button>
+        <button data-view="cards" aria-pressed="false">Cards</button>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle light / dark"></button>
+    </div>
   </header>
 
-  <div class="stats" id="stats"></div>
-  <div class="bar" id="bar"></div>
+  <section class="stats" id="stats"></section>
+
+  <section class="charts">
+    <div class="panel">
+      <h2>Overall progress</h2>
+      <p class="hint">Share of repos by status</p>
+      <div class="donut-wrap">
+        <svg id="donut" viewBox="0 0 168 168" role="img" aria-label="Status breakdown"></svg>
+        <div class="donut-list" id="donutList"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Progress by category</h2>
+      <p class="hint">Click a category to filter the list</p>
+      <div class="legend" id="catLegend"></div>
+      <div class="cat-rows" id="catRows"></div>
+      <div class="empty-note" id="catNote"></div>
+    </div>
+  </section>
 
   <div class="controls">
-    <input id="q" type="search" placeholder="Search name, description, language, topic…">
-    <select id="sort">
-      <option value="status">Sort: status</option>
-      <option value="pushed">Sort: last push</option>
-      <option value="name">Sort: name</option>
-      <option value="created">Sort: created</option>
-    </select>
-    <select id="health">
+    <input id="q" type="search" placeholder="Search name, description, language, topic…" aria-label="Search">
+    <select id="cat" aria-label="Category"><option value="all">All categories</option></select>
+    <select id="health" aria-label="Health">
       <option value="all">All health</option>
       <option value="warn">Has warnings</option>
       <option value="ok">No warnings</option>
     </select>
+    <select id="live" aria-label="Live link">
+      <option value="all">Live link: any</option>
+      <option value="yes">Has live link</option>
+      <option value="no">No live link</option>
+    </select>
+    <span class="count" id="count"></span>
   </div>
 
-  <div class="grid" id="grid"></div>
+  <div id="list"></div>
 
   <footer>
-    Status comes from repo topics: <code>status-completed</code>, <code>status-in-progress</code>,
-    <code>status-needs-improvement</code>. Refreshed daily by GitHub Actions. Archived repos are excluded.
+    <b>Status</b> comes from repo topics <code>status-completed</code>, <code>status-in-progress</code>, <code>status-needs-improvement</code>.
+    <b>Category</b> comes from a topic starting with <code>cat-</code> (e.g. <code>cat-ml-project</code>).
+    <b>Live</b> uses the repo's Website field, or its GitHub Pages site.
+    Refreshed daily by GitHub Actions · archived repos excluded.
   </footer>
 </div>
+<div class="tip" id="tip"></div>
 
 <script>
+const STATUSES = ["completed", "in-progress", "needs-improvement", "untagged"];
 const LABELS = { "completed": "Completed", "in-progress": "In progress", "needs-improvement": "Needs improvement", "untagged": "Not tagged" };
-const COLORS = { "completed": "var(--done)", "in-progress": "var(--prog)", "needs-improvement": "var(--fix)", "untagged": "var(--none)" };
-const ORDER = ["needs-improvement", "in-progress", "untagged", "completed"];
-let DATA = null, statusFilter = "all";
+const ICONS = { "completed": "✓", "in-progress": "…", "needs-improvement": "!", "untagged": "?" };
+const RANK = { "needs-improvement": 0, "in-progress": 1, "untagged": 2, "completed": 3 };
+const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
 
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const ago = d => {
-  if (d == null) return "—";
-  if (d === 0) return "today";
-  if (d < 31) return d + "d ago";
-  if (d < 365) return Math.round(d / 30) + "mo ago";
-  return (d / 365).toFixed(1) + "y ago";
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
 };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const ago = d => d == null ? "—" : d === 0 ? "today" : d < 31 ? d + "d ago" : d < 365 ? Math.round(d / 30) + "mo ago" : (d / 365).toFixed(1) + "y ago";
 
+let DATA = null;
+const state = { status: "all", category: "all", view: store.get("rt-view") || "table", sortKey: "status", sortDir: 1 };
+
+/* ---------- Theme ---------- */
+function currentTheme() {
+  return document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+}
+function paintThemeBtn() {
+  const dark = currentTheme() === "dark";
+  $("themeBtn").innerHTML = dark ? SUN : MOON;
+  $("themeBtn").title = dark ? "Switch to light mode" : "Switch to dark mode";
+}
+$("themeBtn").onclick = () => {
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  store.set("rt-theme", next);
+  paintThemeBtn();
+  if (DATA) renderCharts();
+};
+paintThemeBtn();
+
+/* ---------- Tooltip ---------- */
+const tip = $("tip");
+function showTip(e, html) { tip.innerHTML = html; tip.style.opacity = 1; moveTip(e); }
+function moveTip(e) {
+  const w = tip.offsetWidth, x = Math.min(e.clientX + 14, innerWidth - w - 8);
+  tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px";
+}
+function hideTip() { tip.style.opacity = 0; }
+
+/* ---------- Status badge ---------- */
+const statusBadge = s =>
+  `<span class="status s-${s}"><span class="ic" style="background:var(--s-${s})">${ICONS[s]}</span>${LABELS[s]}</span>`;
+
+/* ---------- KPI tiles ---------- */
 function renderStats() {
   const c = DATA.counts;
-  const items = [["all", "Total", c.total, "var(--accent)"], ...["completed", "in-progress", "needs-improvement", "untagged"].map(s => [s, LABELS[s], c[s], COLORS[s]])];
-  document.getElementById("stats").innerHTML = items.map(([k, l, n, col]) =>
-    `<button class="stat" data-k="${k}" aria-pressed="${statusFilter === k}">
-       <div class="n">${n}</div><div class="l"><span class="dot" style="background:${col}"></span>${l}</div>
-     </button>`).join("");
-  document.querySelectorAll(".stat").forEach(b => b.onclick = () => {
-    statusFilter = statusFilter === b.dataset.k ? "all" : b.dataset.k;
-    renderStats(); renderGrid();
+  const tagged = c.total - c.untagged;
+  const pct = c.total ? Math.round(c.completed / c.total * 100) : 0;
+  const tiles = [["all", "Total repos", c.total, null, `${pct}% completed`]]
+    .concat(STATUSES.map(s => [s, LABELS[s], c[s], s, c.total ? Math.round(c[s] / c.total * 100) + "% of repos" : ""]));
+  $("stats").innerHTML = tiles.map(([k, l, n, s, foot]) => `
+    <button class="stat" data-k="${k}" aria-pressed="${state.status === k}">
+      <div class="n num">${n}</div>
+      <div class="l">${s ? `<span class="sw" style="background:var(--s-${s})"></span>` : ""}${l}</div>
+      <div class="l">${foot}</div>
+    </button>`).join("");
+  $("stats").querySelectorAll(".stat").forEach(b => b.onclick = () => {
+    state.status = state.status === b.dataset.k ? "all" : b.dataset.k;
+    renderStats(); renderList();
   });
-  document.getElementById("bar").innerHTML = c.total ? ["completed", "in-progress", "needs-improvement", "untagged"]
-    .map(s => `<div title="${LABELS[s]}: ${c[s]}" style="width:${c[s] / c.total * 100}%;background:${COLORS[s]}"></div>`).join("") : "";
 }
 
-function renderGrid() {
-  const q = document.getElementById("q").value.trim().toLowerCase();
-  const sort = document.getElementById("sort").value;
-  const health = document.getElementById("health").value;
-  let rows = DATA.repos.filter(r =>
-    (statusFilter === "all" || r.status === statusFilter) &&
-    (health === "all" || (health === "warn" ? r.warnings.length : !r.warnings.length)) &&
-    (!q || [r.name, r.description, r.language, ...r.topics].join(" ").toLowerCase().includes(q)));
-  const by = {
-    status: (a, b) => ORDER.indexOf(a.status) - ORDER.indexOf(b.status) || a.name.localeCompare(b.name),
-    pushed: (a, b) => (b.pushed_at || "").localeCompare(a.pushed_at || ""),
-    created: (a, b) => (b.created_at || "").localeCompare(a.created_at || ""),
-    name: (a, b) => a.name.localeCompare(b.name),
+/* ---------- Charts ---------- */
+function renderCharts() {
+  const c = DATA.counts, total = c.total || 1;
+  const surface = cssVar("--surface");
+
+  // Donut
+  const R = 66, r = 46, cx = 84, cy = 84;
+  let a0 = -Math.PI / 2, paths = "";
+  const arc = (a1, a2) => {
+    const large = a2 - a1 > Math.PI ? 1 : 0;
+    const p = (rad, a) => `${cx + rad * Math.cos(a)} ${cy + rad * Math.sin(a)}`;
+    return `M${p(R, a1)} A${R} ${R} 0 ${large} 1 ${p(R, a2)} L${p(r, a2)} A${r} ${r} 0 ${large} 0 ${p(r, a1)} Z`;
   };
-  rows.sort(by[sort]);
-  const grid = document.getElementById("grid");
-  if (!rows.length) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1">No repos match.</div>`; return; }
-  grid.innerHTML = rows.map(r => `
-    <article class="card">
-      <div class="card-top">
-        <a class="name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>
-        <span class="pill s-${r.status}">${LABELS[r.status]}</span>
+  const present = STATUSES.filter(s => c[s] > 0);
+  present.forEach(s => {
+    const frac = c[s] / total;
+    const a1 = a0, a2 = a0 + frac * Math.PI * 2 - (frac >= 1 ? 0.0001 : 0);
+    paths += `<path d="${arc(a1, a2)}" fill="var(--s-${s})" stroke="${surface}" stroke-width="${present.length > 1 ? 2 : 0}" data-s="${s}" style="cursor:pointer"></path>`;
+    a0 = a2;
+  });
+  const pct = Math.round(c.completed / total * 100);
+  $("donut").innerHTML = paths +
+    `<text x="84" y="82" text-anchor="middle" font-size="26" font-weight="700" fill="var(--text)" font-family="JetBrains Mono, monospace">${pct}%</text>
+     <text x="84" y="102" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Inter, sans-serif">completed</text>`;
+  $("donut").querySelectorAll("path").forEach(p => {
+    const s = p.dataset.s;
+    p.onmousemove = e => showTip(e, `<b>${LABELS[s]}</b> · ${c[s]} repos (${Math.round(c[s] / total * 100)}%)`);
+    p.onmouseleave = hideTip;
+    p.onclick = () => { state.status = state.status === s ? "all" : s; renderStats(); renderList(); };
+  });
+  $("donutList").innerHTML = STATUSES.map(s =>
+    `<div><span class="sw" style="background:var(--s-${s})"></span>${LABELS[s]}<span class="num">${c[s]}</span></div>`).join("");
+
+  // Category stacked bars
+  $("catLegend").innerHTML = STATUSES.map(s => `<span><span class="sw" style="background:var(--s-${s})"></span>${LABELS[s]}</span>`).join("");
+  const cats = Object.entries(DATA.categories || {})
+    .map(([name, v]) => ({ name, v, n: STATUSES.reduce((a, s) => a + (v[s] || 0), 0) }))
+    .sort((a, b) => (a.name === "Uncategorized") - (b.name === "Uncategorized") || b.n - a.n || a.name.localeCompare(b.name));
+  const max = Math.max(1, ...cats.map(x => x.n));
+  $("catRows").innerHTML = cats.map(x => `
+    <div class="cat-row ${state.category === x.name ? "active" : ""}" data-cat="${esc(x.name)}">
+      <span class="cl" title="${esc(x.name)}">${esc(x.name)}</span>
+      <div class="bar" style="width:${x.n / max * 100}%">
+        ${STATUSES.filter(s => x.v[s]).map(s => `<i data-s="${s}" data-n="${x.v[s]}" style="flex:${x.v[s]};background:var(--s-${s})"></i>`).join("")}
       </div>
-      ${r.description ? `<p class="desc">${esc(r.description)}</p>` : ""}
-      <div class="meta">
-        <span>${esc(r.language)}</span>
-        <span title="Last push">⟳ ${ago(r.days_since_push)}</span>
-        <span title="Stars">★ ${r.stars}</span>
-        <span title="Open issues">◎ ${r.open_issues}</span>
-        ${r.is_fork ? "<span>fork</span>" : ""}
-      </div>
-      ${r.topics.length ? `<div class="tags">${r.topics.map(t => `<span>#${esc(t)}</span>`).join("")}</div>` : ""}
-      ${r.warnings.length ? `<div class="warn">${r.warnings.map(w => `<span>${esc(w)}</span>`).join("")}</div>` : ""}
-    </article>`).join("");
+      <span class="ct num">${x.n}</span>
+    </div>`).join("");
+  $("catRows").querySelectorAll(".cat-row").forEach(row => {
+    row.onclick = () => {
+      state.category = state.category === row.dataset.cat ? "all" : row.dataset.cat;
+      $("cat").value = state.category; renderCharts(); renderList();
+    };
+    row.querySelectorAll("i").forEach(seg => {
+      seg.onmousemove = e => showTip(e, `<b>${esc(row.dataset.cat)}</b> · ${LABELS[seg.dataset.s]}: ${seg.dataset.n}`);
+      seg.onmouseleave = hideTip;
+    });
+  });
+  const allUncat = cats.length === 1 && cats[0].name === "Uncategorized";
+  $("catNote").textContent = allUncat
+    ? "No categories yet. Add a topic like cat-ml-project to each repo to split this chart."
+    : (c.untagged === c.total ? "No status topics yet. Bars turn colored as you tag repos." : "");
 }
 
+/* ---------- List (table / cards) ---------- */
+function filtered() {
+  const q = $("q").value.trim().toLowerCase(), h = $("health").value, lv = $("live").value;
+  return DATA.repos.filter(r =>
+    (state.status === "all" || r.status === state.status) &&
+    (state.category === "all" || r.category === state.category) &&
+    (h === "all" || (h === "warn" ? r.warnings.length : !r.warnings.length)) &&
+    (lv === "all" || (lv === "yes" ? r.live_url : !r.live_url)) &&
+    (!q || [r.name, r.description, r.language, r.category, ...r.topics].join(" ").toLowerCase().includes(q)));
+}
+const SORTERS = {
+  name: (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }),
+  category: (a, b) => a.category.localeCompare(b.category) || SORTERS.name(a, b),
+  status: (a, b) => RANK[a.status] - RANK[b.status] || SORTERS.name(a, b),
+  language: (a, b) => a.language.localeCompare(b.language) || SORTERS.name(a, b),
+  pushed: (a, b) => (b.pushed_at || "").localeCompare(a.pushed_at || ""),
+  live: (a, b) => (!!b.live_url - !!a.live_url) || SORTERS.name(a, b),
+  health: (a, b) => b.warnings.length - a.warnings.length || SORTERS.name(a, b),
+};
+const liveLink = r => r.live_url
+  ? `<a class="live" href="${esc(r.live_url)}" target="_blank" rel="noopener">Open ↗</a>`
+  : `<span class="muted">—</span>`;
+const warnings = r => r.warnings.length
+  ? `<div class="warn">${r.warnings.map(w => `<span>${esc(w)}</span>`).join("")}</div>`
+  : `<span class="ok">OK</span>`;
+
+function renderList() {
+  const rows = filtered().sort((a, b) => SORTERS[state.sortKey](a, b) * state.sortDir);
+  $("count").textContent = `${rows.length} of ${DATA.repos.length} repos`;
+  const list = $("list");
+  if (!rows.length) { list.innerHTML = `<div class="empty">No repos match these filters.</div>`; return; }
+
+  if (state.view === "table") {
+    const cols = [["name", "Repository"], ["category", "Category"], ["status", "Status"], ["language", "Language"], ["pushed", "Last push"], ["live", "Live"], ["health", "Health"]];
+    list.innerHTML = `<div class="table-wrap"><table>
+      <thead><tr>${cols.map(([k, l]) => `<th data-k="${k}" aria-sort="${state.sortKey === k ? (state.sortDir > 0 ? "ascending" : "descending") : "none"}">${l}${state.sortKey === k ? `<span class="arr">${state.sortDir > 0 ? "↑" : "↓"}</span>` : ""}</th>`).join("")}</tr></thead>
+      <tbody>${rows.map(r => `<tr>
+        <td class="repo"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>${r.description ? `<div class="d">${esc(r.description)}</div>` : ""}</td>
+        <td class="nowrap"><span class="chip">${esc(r.category)}</span></td>
+        <td>${statusBadge(r.status)}</td>
+        <td class="nowrap">${esc(r.language)}</td>
+        <td class="nowrap num" title="${esc((r.pushed_at || "").slice(0, 10))}">${ago(r.days_since_push)}</td>
+        <td>${liveLink(r)}</td>
+        <td>${warnings(r)}</td>
+      </tr>`).join("")}</tbody></table></div>`;
+    list.querySelectorAll("th[data-k]").forEach(th => th.onclick = () => {
+      const k = th.dataset.k;
+      state.sortDir = state.sortKey === k ? -state.sortDir : 1;
+      state.sortKey = k; renderList();
+    });
+  } else {
+    list.innerHTML = `<div class="grid">${rows.map(r => `
+      <article class="card">
+        <div class="card-top"><a class="name" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.name)}</a>${statusBadge(r.status)}</div>
+        ${r.description ? `<div class="muted" style="font-size:13px">${esc(r.description)}</div>` : ""}
+        <div class="meta"><span class="chip">${esc(r.category)}</span><span>${esc(r.language)}</span><span class="num">⟳ ${ago(r.days_since_push)}</span>${r.live_url ? liveLink(r) : ""}</div>
+        ${r.warnings.length ? warnings(r) : ""}
+      </article>`).join("")}</div>`;
+  }
+}
+
+/* ---------- View toggle ---------- */
+function paintView() {
+  document.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.view === state.view));
+}
+document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+  state.view = b.dataset.view; store.set("rt-view", state.view); paintView(); if (DATA) renderList();
+});
+paintView();
+
+/* ---------- Load ---------- */
 fetch("data.json", { cache: "no-store" })
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(d => {
     DATA = d;
-    document.getElementById("title").textContent = `${d.owner}'s Repo Tracker`;
+    d.repos.forEach(r => { r.category = r.category || "Uncategorized"; r.live_url = r.live_url || r.homepage || ""; });
+    if (!d.categories) {
+      d.categories = {};
+      d.repos.forEach(r => { const c = d.categories[r.category] ||= {}; c[r.status] = (c[r.status] || 0) + 1; });
+    }
+    $("title").textContent = `${d.owner} · Repo Tracker`;
     document.title = `${d.owner} · Repo Tracker`;
-    document.getElementById("updated").textContent =
-      `Last updated ${new Date(d.generated_at).toLocaleString()} · ${d.counts.total} repos`;
-    renderStats(); renderGrid();
-    ["q", "sort", "health"].forEach(id => document.getElementById(id).addEventListener("input", renderGrid));
+    $("updated").textContent = `Last updated ${new Date(d.generated_at).toLocaleString()} · ${d.counts.total} repos`;
+    const catSel = $("cat");
+    Object.keys(d.categories).sort().forEach(c => catSel.insertAdjacentHTML("beforeend", `<option>${esc(c)}</option>`));
+    catSel.onchange = () => { state.category = catSel.value; renderCharts(); renderList(); };
+    ["q", "health", "live"].forEach(id => $(id).addEventListener("input", renderList));
+    renderStats(); renderCharts(); renderList();
   })
   .catch(() => {
-    document.getElementById("updated").textContent = "";
-    document.getElementById("grid").innerHTML =
-      `<div class="err" style="grid-column:1/-1">No data yet. Run the “Update repo tracker” workflow from the Actions tab.</div>`;
+    $("updated").textContent = "";
+    $("list").innerHTML = `<div class="empty">No data yet. Run the “Update repo tracker” workflow from the Actions tab.</div>`;
   });
 </script>
 </body>
