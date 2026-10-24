@@ -1,33 +1,37 @@
 #!/usr/bin/env bash
 # Applies category + status topics from repo-tags.csv to your GitHub repos.
-#   status column: completed | in-progress | needs-improvement   (blank = leave status untouched)
-#   category column: any cat-* topic                            (blank = leave category untouched)
-# Needs the GitHub CLI:  brew install gh  &&  gh auth login
-# Usage:  bash tagging/apply_tags.sh            (from the repo-tracker folder)
-#         bash tagging/apply_tags.sh --dry-run  (show what would change)
-set -euo pipefail
+#   status:   Completed / In progress / Need(s) improvement (any case; blank = leave unchanged)
+#   category: e.g. cat-ml-project or "ML Project"           (blank = leave unchanged)
+# Usage: bash tagging/apply_tags.sh [--dry-run]
+set -uo pipefail
 OWNER="${OWNER:-gkrishna4346}"
 CSV="$(dirname "$0")/repo-tags.csv"
 DRY=""; [[ "${1:-}" == "--dry-run" ]] && DRY=1
-
-tail -n +2 "$CSV" | tr -d '\r' | while IFS=, read -r repo category status; do
+slug() { printf '%s' "$1" | tr '[:upper:]' '[:lower:]' | sed -E 's/^[[:space:]]+|[[:space:]]+$//g; s/[[:space:]_]+/-/g'; }
+perl -pe 's/\r\n?/\n/g; s/^\x{EF}\x{BB}\x{BF}//' "$CSV" | tail -n +2 | while IFS=, read -r repo category status _; do
+  repo=$(printf '%s' "$repo" | sed -E 's/^[[:space:]]+|[[:space:]]+$//g')
   [[ -z "$repo" ]] && continue
+  s=$(slug "$status")
+  case "$s" in
+    "") ;;
+    completed|complete|done|finished) s="completed" ;;
+    in-progress|inprogress|progress|wip|ongoing|work-in-progress) s="in-progress" ;;
+    needs-improvement|need-improvement|needs-improvements|need-improvements|improvement|improve|todo|incomplete) s="needs-improvement" ;;
+    *) echo "!! $repo: unknown status '$status' (skipped)"; continue ;;
+  esac
+  c=$(slug "$category"); [[ -n "$c" && $c != cat-* ]] && c="cat-$c"
   args=()
   current=$(gh repo view "$OWNER/$repo" --json repositoryTopics -q '.repositoryTopics[]?.name' 2>/dev/null < /dev/null || true)
-
-  if [[ -n "$status" ]]; then
-    case "$status" in completed|in-progress|needs-improvement) ;; *) echo "!! $repo: unknown status '$status' (skipped)"; continue;; esac
-    for t in $current; do [[ $t == status-* && $t != "status-$status" ]] && args+=(--remove-topic "$t"); done
-    args+=(--add-topic "status-$status")
+  if [[ -n "$s" ]]; then
+    for t in $current; do [[ $t == status-* && $t != "status-$s" ]] && args+=(--remove-topic "$t"); done
+    [[ " $current " == *" status-$s "* ]] || args+=(--add-topic "status-$s")
   fi
-  if [[ -n "$category" ]]; then
-    [[ $category != cat-* ]] && category="cat-$category"
-    for t in $current; do [[ $t == cat-* && $t != "$category" ]] && args+=(--remove-topic "$t"); done
-    args+=(--add-topic "$category")
+  if [[ -n "$c" ]]; then
+    for t in $current; do [[ $t == cat-* && $t != "$c" ]] && args+=(--remove-topic "$t"); done
+    [[ " $current " == *" $c "* ]] || args+=(--add-topic "$c")
   fi
-  [[ ${#args[@]} -eq 0 ]] && continue
-
+  if [[ ${#args[@]} -eq 0 ]]; then echo "   $repo: already up to date"; continue; fi
   echo "-> $repo ${args[*]}"
-  [[ -z "$DRY" ]] && gh repo edit "$OWNER/$repo" "${args[@]}" >/dev/null < /dev/null
+  [[ -z "$DRY" ]] && { gh repo edit "$OWNER/$repo" "${args[@]}" >/dev/null < /dev/null || echo "!! $repo: update failed"; }
 done
-echo "Done. Run the 'Update repo tracker' workflow (Actions tab) to refresh the dashboard."
+echo "Done. Now run the 'Update repo tracker' workflow (Actions tab) to refresh the dashboard."

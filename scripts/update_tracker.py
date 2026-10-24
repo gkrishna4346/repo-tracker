@@ -34,7 +34,7 @@ STATUS_TOPICS = {
 }
 STATUS_ORDER = ["needs-improvement", "in-progress", "untagged", "completed"]
 CATEGORY_PREFIX = "cat-"
-ACRONYMS = {"ml", "ai", "nlp", "llm", "sql", "vba", "ui", "api", "eda", "bi"}
+ACRONYMS = {"ml", "ai", "aiml", "nlp", "llm", "sql", "vba", "ui", "api", "eda", "bi"}
 README_LABELS = {
     "completed": "✅ Completed",
     "in-progress": "🚧 In progress",
