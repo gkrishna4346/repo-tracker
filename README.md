@@ -23,7 +23,7 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-26 15:21 UTC · 62 repos · ✅ 51 · 🚧 4 · 🛠️ 5 · ❔ 2_
+_Last updated: 2026-10-26 15:59 UTC · 62 repos · ✅ 53 · 🚧 4 · 🛠️ 5 · ❔ 0_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
@@ -36,8 +36,6 @@ _Last updated: 2026-10-26 15:21 UTC · 62 repos · ✅ 51 · 🚧 4 · 🛠️ 5
 | [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | [Open ↗](https://kanplan.onrender.com/) | 2026-08-08 | No README, No description, No license |
 | [qubism](https://github.com/gkrishna4346/qubism) | AIML Hobby | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/qubism/) | 2026-10-22 | No README, No description, No license |
 | [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-26 | No description, No license |
-| [powerbi-learning-lab](https://github.com/gkrishna4346/powerbi-learning-lab) | Uncategorized | ❔ Not tagged | [Open ↗](https://gkrishna4346.github.io/powerbi-learning-lab/) | 2026-10-26 | No README, No description, No license |
-| [visualized-javascript-coding](https://github.com/gkrishna4346/visualized-javascript-coding) | Uncategorized | ❔ Not tagged | [Open ↗](https://gkrishna4346.github.io/visualized-javascript-coding/) | 2026-10-26 | No README, No description, No license |
 | [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | [Open ↗](https://gk-airlines-hr-policy-bot.streamlit.app/) | 2026-07-09 | No description, No license |
 | [articulate](https://github.com/gkrishna4346/articulate) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/articulate/) | 2026-10-18 | No README, No description, No license |
 | [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | [Open ↗](https://battery-clinic-ai.streamlit.app/) | 2026-10-18 | No description, No license |
@@ -71,6 +69,7 @@ _Last updated: 2026-10-26 15:21 UTC · 62 repos · ✅ 51 · 🚧 4 · 🛠️ 5
 | [paper-mind](https://github.com/gkrishna4346/paper-mind) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-ai.onrender.com/) | 2026-07-30 | No description, No license |
 | [paper-mind-js](https://github.com/gkrishna4346/paper-mind-js) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-js.onrender.com/) | 2026-10-26 | No description, No license |
 | [pending-hours](https://github.com/gkrishna4346/pending-hours) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/pending-hours/) | 2026-07-31 | No README, No description, No license |
+| [powerbi-learning-lab](https://github.com/gkrishna4346/powerbi-learning-lab) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/powerbi-learning-lab/) | 2026-10-26 | No README, No description, No license |
 | [predictive-maintenance-capstone](https://github.com/gkrishna4346/predictive-maintenance-capstone)<br><sub>Predictive Maintenance using Machine Learning with end-to-end deployment and workflow automation.</sub> | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/predictive-maintenance-capstone/) | 2026-10-03 | No license |
 | [ps](https://github.com/gkrishna4346/ps) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/ps/) | 2026-10-18 | No README, No description, No license |
 | [pulse](https://github.com/gkrishna4346/pulse) | Work Tools | ✅ Completed | [Open ↗](https://pulse-know-your-speed.streamlit.app/) | 2026-07-21 | No description, No license |
@@ -82,6 +81,7 @@ _Last updated: 2026-10-26 15:21 UTC · 62 repos · ✅ 51 · 🚧 4 · 🛠️ 5
 | [visualized-data-science](https://github.com/gkrishna4346/visualized-data-science) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-data-science/) | 2026-10-19 | No README, No description, No license |
 | [visualized-excel-functions](https://github.com/gkrishna4346/visualized-excel-functions) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-excel-functions/) | 2026-09-28 | No README, No description, No license |
 | [visualized-git-commands](https://github.com/gkrishna4346/visualized-git-commands) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-git-commands/) | 2026-09-28 | No README, No description, No license |
+| [visualized-javascript-coding](https://github.com/gkrishna4346/visualized-javascript-coding) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-javascript-coding/) | 2026-10-26 | No README, No description, No license |
 | [visualized-ml-dl](https://github.com/gkrishna4346/visualized-ml-dl) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-ml-dl/) | 2026-10-22 | No README, No description, No license |
 | [visualized-nlp-llm](https://github.com/gkrishna4346/visualized-nlp-llm) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-nlp-llm/) | 2026-10-22 | No README, No description, No license |
 | [visualized-python-codings](https://github.com/gkrishna4346/visualized-python-codings) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-python-codings/) | 2026-10-19 | No README, No description, No license |

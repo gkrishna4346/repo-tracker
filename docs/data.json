@@ -1,12 +1,12 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-10-26T15:21:58+00:00",
+  "generated_at": "2026-10-26T15:59:36+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 5,
     "in-progress": 4,
-    "untagged": 2,
-    "completed": 51,
+    "untagged": 0,
+    "completed": 53,
     "total": 62
   },
   "categories": {
@@ -39,12 +39,6 @@
       "in-progress": 1,
       "untagged": 0,
       "completed": 1
-    },
-    "Uncategorized": {
-      "needs-improvement": 0,
-      "in-progress": 0,
-      "untagged": 2,
-      "completed": 0
     },
     "AIML Academic": {
       "needs-improvement": 0,
@@ -86,7 +80,7 @@
       "needs-improvement": 0,
       "in-progress": 0,
       "untagged": 0,
-      "completed": 11
+      "completed": 13
     }
   },
   "repos": [
@@ -271,7 +265,7 @@
       "live_url": "https://gkrishna4346.github.io/qubism/",
       "created_at": "2026-10-19T19:51:19Z",
       "pushed_at": "2026-10-22T15:38:22Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -294,59 +288,11 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/repo-tracker/",
       "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-10-26T11:47:25Z",
+      "pushed_at": "2026-10-26T15:21:59Z",
       "days_since_push": 0,
       "has_readme": true,
       "license": "",
       "warnings": [
-        "No description",
-        "No license"
-      ]
-    },
-    {
-      "name": "powerbi-learning-lab",
-      "url": "https://github.com/gkrishna4346/powerbi-learning-lab",
-      "description": "",
-      "status": "untagged",
-      "category": "Uncategorized",
-      "topics": [],
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "open_issues": 0,
-      "is_fork": false,
-      "live_url": "https://gkrishna4346.github.io/powerbi-learning-lab/",
-      "created_at": "2026-10-26T15:06:26Z",
-      "pushed_at": "2026-10-26T15:15:19Z",
-      "days_since_push": 0,
-      "has_readme": false,
-      "license": "",
-      "warnings": [
-        "No README",
-        "No description",
-        "No license"
-      ]
-    },
-    {
-      "name": "visualized-javascript-coding",
-      "url": "https://github.com/gkrishna4346/visualized-javascript-coding",
-      "description": "",
-      "status": "untagged",
-      "category": "Uncategorized",
-      "topics": [],
-      "language": "HTML",
-      "stars": 0,
-      "forks": 0,
-      "open_issues": 0,
-      "is_fork": false,
-      "live_url": "https://gkrishna4346.github.io/visualized-javascript-coding/",
-      "created_at": "2026-10-26T15:04:14Z",
-      "pushed_at": "2026-10-26T15:04:43Z",
-      "days_since_push": 0,
-      "has_readme": false,
-      "license": "",
-      "warnings": [
-        "No README",
         "No description",
         "No license"
       ]
@@ -600,7 +546,7 @@
       "live_url": "https://gkrishna4346.github.io/gk-master-repo/",
       "created_at": "2026-06-17T06:36:49Z",
       "pushed_at": "2026-08-20T15:30:04Z",
-      "days_since_push": 66,
+      "days_since_push": 67,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1132,6 +1078,30 @@
       ]
     },
     {
+      "name": "powerbi-learning-lab",
+      "url": "https://github.com/gkrishna4346/powerbi-learning-lab",
+      "description": "",
+      "status": "completed",
+      "category": "Learning",
+      "topics": [],
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://gkrishna4346.github.io/powerbi-learning-lab/",
+      "created_at": "2026-10-26T15:06:26Z",
+      "pushed_at": "2026-10-26T15:15:19Z",
+      "days_since_push": 0,
+      "has_readme": false,
+      "license": "",
+      "warnings": [
+        "No README",
+        "No description",
+        "No license"
+      ]
+    },
+    {
       "name": "predictive-maintenance-capstone",
       "url": "https://github.com/gkrishna4346/predictive-maintenance-capstone",
       "description": "Predictive Maintenance using Machine Learning with end-to-end deployment and workflow automation.",
@@ -1393,6 +1363,30 @@
       ]
     },
     {
+      "name": "visualized-javascript-coding",
+      "url": "https://github.com/gkrishna4346/visualized-javascript-coding",
+      "description": "",
+      "status": "completed",
+      "category": "Learning",
+      "topics": [],
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://gkrishna4346.github.io/visualized-javascript-coding/",
+      "created_at": "2026-10-26T15:04:14Z",
+      "pushed_at": "2026-10-26T15:04:43Z",
+      "days_since_push": 0,
+      "has_readme": false,
+      "license": "",
+      "warnings": [
+        "No README",
+        "No description",
+        "No license"
+      ]
+    },
+    {
       "name": "visualized-ml-dl",
       "url": "https://github.com/gkrishna4346/visualized-ml-dl",
       "description": "",
@@ -1407,7 +1401,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-ml-dl/",
       "created_at": "2026-10-22T15:42:30Z",
       "pushed_at": "2026-10-22T15:42:51Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1431,7 +1425,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-nlp-llm/",
       "created_at": "2026-10-22T15:43:32Z",
       "pushed_at": "2026-10-22T15:43:52Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1527,7 +1521,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-statistics/",
       "created_at": "2026-10-22T15:47:17Z",
       "pushed_at": "2026-10-22T15:48:04Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1551,7 +1545,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-vba/",
       "created_at": "2026-10-22T15:39:17Z",
       "pushed_at": "2026-10-22T15:39:33Z",
-      "days_since_push": 3,
+      "days_since_push": 4,
       "has_readme": false,
       "license": "",
       "warnings": [
