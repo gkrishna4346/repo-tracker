@@ -23,12 +23,12 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-26 11:47 UTC · 60 repos · ✅ 51 · 🚧 4 · 🛠️ 5 · ❔ 0_
+_Last updated: 2026-10-26 15:21 UTC · 62 repos · ✅ 51 · 🚧 4 · 🛠️ 5 · ❔ 2_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
 | [atlas](https://github.com/gkrishna4346/atlas) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/atlas/) | 2026-10-22 | No README, No description, No license |
-| [bibiliogram](https://github.com/gkrishna4346/bibiliogram) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/bibiliogram/) | 2026-10-22 | No README, No description, No license |
+| [bibiliogram](https://github.com/gkrishna4346/bibiliogram) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/bibiliogram/) | 2026-10-26 | No README, No description, No license |
 | [gkepf](https://github.com/gkrishna4346/gkepf) | Portfolio | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/gkepf/) | 2026-10-07 | No description, No license |
 | [iceberg](https://github.com/gkrishna4346/iceberg) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/iceberg/) | 2026-10-18 | No README, No description, No license |
 | [project-planning](https://github.com/gkrishna4346/project-planning) | Work Tools | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/project-planning/) | 2026-08-20 | No README, No description, No license |
@@ -36,6 +36,8 @@ _Last updated: 2026-10-26 11:47 UTC · 60 repos · ✅ 51 · 🚧 4 · 🛠️ 5
 | [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | [Open ↗](https://kanplan.onrender.com/) | 2026-08-08 | No README, No description, No license |
 | [qubism](https://github.com/gkrishna4346/qubism) | AIML Hobby | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/qubism/) | 2026-10-22 | No README, No description, No license |
 | [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-26 | No description, No license |
+| [powerbi-learning-lab](https://github.com/gkrishna4346/powerbi-learning-lab) | Uncategorized | ❔ Not tagged | [Open ↗](https://gkrishna4346.github.io/powerbi-learning-lab/) | 2026-10-26 | No README, No description, No license |
+| [visualized-javascript-coding](https://github.com/gkrishna4346/visualized-javascript-coding) | Uncategorized | ❔ Not tagged | [Open ↗](https://gkrishna4346.github.io/visualized-javascript-coding/) | 2026-10-26 | No README, No description, No license |
 | [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | [Open ↗](https://gk-airlines-hr-policy-bot.streamlit.app/) | 2026-07-09 | No description, No license |
 | [articulate](https://github.com/gkrishna4346/articulate) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/articulate/) | 2026-10-18 | No README, No description, No license |
 | [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | [Open ↗](https://battery-clinic-ai.streamlit.app/) | 2026-10-18 | No description, No license |
@@ -76,7 +78,7 @@ _Last updated: 2026-10-26 11:47 UTC · 60 repos · ✅ 51 · 🚧 4 · 🛠️ 5
 | [pvt](https://github.com/gkrishna4346/pvt) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/pvt/) | 2026-07-27 | No README, No description, No license |
 | [repo-lens](https://github.com/gkrishna4346/repo-lens) | Dev Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/repo-lens/) | 2026-10-22 | No README, No description, No license |
 | [rock-paper-scissor](https://github.com/gkrishna4346/rock-paper-scissor) | Games | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/rock-paper-scissor/) | 2026-07-21 | No README, No description, No license |
-| [tableau-learning-lab](https://github.com/gkrishna4346/tableau-learning-lab) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/tableau-learning-lab/) | 2026-10-22 | No README, No description, No license |
+| [tableau-learning-lab](https://github.com/gkrishna4346/tableau-learning-lab) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/tableau-learning-lab/) | 2026-10-26 | No README, No description, No license |
 | [visualized-data-science](https://github.com/gkrishna4346/visualized-data-science) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-data-science/) | 2026-10-19 | No README, No description, No license |
 | [visualized-excel-functions](https://github.com/gkrishna4346/visualized-excel-functions) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-excel-functions/) | 2026-09-28 | No README, No description, No license |
 | [visualized-git-commands](https://github.com/gkrishna4346/visualized-git-commands) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/visualized-git-commands/) | 2026-09-28 | No README, No description, No license |
