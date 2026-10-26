@@ -1,12 +1,12 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-10-26T10:17:31+00:00",
+  "generated_at": "2026-10-26T11:47:24+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 5,
     "in-progress": 4,
-    "untagged": 1,
-    "completed": 50,
+    "untagged": 0,
+    "completed": 51,
     "total": 60
   },
   "categories": {
@@ -14,7 +14,7 @@
       "needs-improvement": 3,
       "in-progress": 1,
       "untagged": 0,
-      "completed": 4
+      "completed": 5
     },
     "Portfolio": {
       "needs-improvement": 1,
@@ -39,12 +39,6 @@
       "in-progress": 1,
       "untagged": 0,
       "completed": 1
-    },
-    "Uncategorized": {
-      "needs-improvement": 0,
-      "in-progress": 0,
-      "untagged": 1,
-      "completed": 0
     },
     "AIML Academic": {
       "needs-improvement": 0,
@@ -221,7 +215,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://autoeda-studio.streamlit.app/",
       "created_at": "2026-07-05T09:25:23Z",
       "pushed_at": "2026-07-12T17:51:09Z",
       "days_since_push": 105,
@@ -244,7 +238,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://kanplan.onrender.com/",
       "created_at": "2026-08-01T04:38:30Z",
       "pushed_at": "2026-08-08T02:52:04Z",
       "days_since_push": 79,
@@ -294,30 +288,7 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/repo-tracker/",
       "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-10-26T05:12:35Z",
-      "days_since_push": 0,
-      "has_readme": true,
-      "license": "",
-      "warnings": [
-        "No description",
-        "No license"
-      ]
-    },
-    {
-      "name": "paper-mind-js",
-      "url": "https://github.com/gkrishna4346/paper-mind-js",
-      "description": "",
-      "status": "untagged",
-      "category": "Uncategorized",
-      "topics": [],
-      "language": "JavaScript",
-      "stars": 0,
-      "forks": 0,
-      "open_issues": 0,
-      "is_fork": false,
-      "live_url": "",
-      "created_at": "2026-10-26T08:50:24Z",
-      "pushed_at": "2026-10-26T10:07:47Z",
+      "pushed_at": "2026-10-26T10:17:32Z",
       "days_since_push": 0,
       "has_readme": true,
       "license": "",
@@ -338,10 +309,10 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://gk-airlines-hr-policy-bot.streamlit.app/",
       "created_at": "2026-07-09T06:36:31Z",
       "pushed_at": "2026-07-09T11:34:39Z",
-      "days_since_push": 108,
+      "days_since_push": 109,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -364,7 +335,7 @@
       "live_url": "https://gkrishna4346.github.io/articulate/",
       "created_at": "2026-10-18T10:45:29Z",
       "pushed_at": "2026-10-18T10:45:55Z",
-      "days_since_push": 7,
+      "days_since_push": 8,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -385,7 +356,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://battery-clinic-ai.streamlit.app/",
       "created_at": "2026-10-01T06:58:57Z",
       "pushed_at": "2026-10-18T17:44:46Z",
       "days_since_push": 7,
@@ -432,7 +403,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://buython.streamlit.app/",
       "created_at": "2026-06-15T08:37:06Z",
       "pushed_at": "2026-06-18T03:31:06Z",
       "days_since_push": 130,
@@ -454,7 +425,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://chitti-ecoach.onrender.com/",
       "created_at": "2026-07-16T05:33:05Z",
       "pushed_at": "2026-07-16T07:15:51Z",
       "days_since_push": 102,
@@ -549,7 +520,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://gkrishna4346.github.io/gk-master-repo/",
       "created_at": "2026-07-11T04:44:06Z",
       "pushed_at": "2026-07-30T08:32:46Z",
       "days_since_push": 88,
@@ -643,7 +614,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://kural-quest.streamlit.app/",
       "created_at": "2026-06-17T11:02:16Z",
       "pushed_at": "2026-06-18T05:48:16Z",
       "days_since_push": 130,
@@ -667,7 +638,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://gkrishna4346-kural-thedal-app-k4n7fp.streamlit.app/",
       "created_at": "2026-06-18T17:08:22Z",
       "pushed_at": "2026-06-18T17:59:37Z",
       "days_since_push": 129,
@@ -742,7 +713,7 @@
       "live_url": "https://gkrishna4346.github.io/mindmap-aiml-journey/",
       "created_at": "2026-06-22T17:06:10Z",
       "pushed_at": "2026-07-31T11:20:35Z",
-      "days_since_push": 86,
+      "days_since_push": 87,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -788,7 +759,7 @@
       "live_url": "https://gkrishna4346.github.io/P10_Tourism-Package-Prediction/",
       "created_at": "2026-06-19T11:15:22Z",
       "pushed_at": "2026-06-19T11:16:29Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -811,7 +782,7 @@
       "live_url": "https://gkrishna4346.github.io/P11_News-Findr/",
       "created_at": "2026-06-19T11:17:41Z",
       "pushed_at": "2026-06-19T11:17:56Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -835,7 +806,7 @@
       "live_url": "https://gkrishna4346.github.io/P1_Food-Hub/",
       "created_at": "2026-06-19T10:27:30Z",
       "pushed_at": "2026-06-19T10:32:56Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -859,7 +830,7 @@
       "live_url": "https://gkrishna4346.github.io/P2_Personal-Loan-Campaign/",
       "created_at": "2026-06-19T10:34:34Z",
       "pushed_at": "2026-06-19T10:35:02Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -883,7 +854,7 @@
       "live_url": "https://gkrishna4346.github.io/P3_Easy-Visa/",
       "created_at": "2026-06-19T10:37:33Z",
       "pushed_at": "2026-06-19T10:37:51Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -907,7 +878,7 @@
       "live_url": "https://gkrishna4346.github.io/P4_Bank-Churn-Predict/",
       "created_at": "2026-06-19T10:38:58Z",
       "pushed_at": "2026-06-19T10:39:13Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -931,7 +902,7 @@
       "live_url": "https://gkrishna4346.github.io/P5_Medical-Assistant/",
       "created_at": "2026-06-19T10:41:12Z",
       "pushed_at": "2026-06-19T10:41:44Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -955,7 +926,7 @@
       "live_url": "https://gkrishna4346.github.io/P6_Helmnet/",
       "created_at": "2026-06-19T10:44:11Z",
       "pushed_at": "2026-06-19T11:03:04Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -979,7 +950,7 @@
       "live_url": "https://gkrishna4346.github.io/P7_SuperKart/",
       "created_at": "2026-06-19T11:04:05Z",
       "pushed_at": "2026-06-19T11:04:57Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1003,7 +974,7 @@
       "live_url": "https://gkrishna4346.github.io/P8_New-Wheels/",
       "created_at": "2026-06-19T11:06:16Z",
       "pushed_at": "2026-06-19T11:08:43Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1027,7 +998,7 @@
       "live_url": "https://gkrishna4346.github.io/P9_News-Express/",
       "created_at": "2026-06-19T11:09:54Z",
       "pushed_at": "2026-06-19T11:10:15Z",
-      "days_since_push": 128,
+      "days_since_push": 129,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1048,10 +1019,33 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://paper-mind-ai.onrender.com/",
       "created_at": "2026-07-30T07:37:15Z",
       "pushed_at": "2026-07-30T07:48:34Z",
       "days_since_push": 88,
+      "has_readme": true,
+      "license": "",
+      "warnings": [
+        "No description",
+        "No license"
+      ]
+    },
+    {
+      "name": "paper-mind-js",
+      "url": "https://github.com/gkrishna4346/paper-mind-js",
+      "description": "",
+      "status": "completed",
+      "category": "AIML Signature",
+      "topics": [],
+      "language": "JavaScript",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://paper-mind-js.onrender.com/",
+      "created_at": "2026-10-26T08:50:24Z",
+      "pushed_at": "2026-10-26T10:07:47Z",
+      "days_since_push": 0,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -1141,7 +1135,7 @@
       "forks": 0,
       "open_issues": 0,
       "is_fork": false,
-      "live_url": "",
+      "live_url": "https://pulse-know-your-speed.streamlit.app/",
       "created_at": "2026-07-19T17:45:59Z",
       "pushed_at": "2026-07-21T04:44:30Z",
       "days_since_push": 97,
@@ -1191,7 +1185,7 @@
       "live_url": "https://gkrishna4346.github.io/pvt/",
       "created_at": "2026-07-27T09:05:55Z",
       "pushed_at": "2026-07-27T10:24:54Z",
-      "days_since_push": 90,
+      "days_since_push": 91,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1239,7 +1233,7 @@
       "live_url": "https://gkrishna4346.github.io/rock-paper-scissor/",
       "created_at": "2026-07-21T11:05:15Z",
       "pushed_at": "2026-07-21T11:05:47Z",
-      "days_since_push": 96,
+      "days_since_push": 97,
       "has_readme": false,
       "license": "",
       "warnings": [

@@ -23,7 +23,7 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-26 10:17 UTC · 60 repos · ✅ 50 · 🚧 4 · 🛠️ 5 · ❔ 1_
+_Last updated: 2026-10-26 11:47 UTC · 60 repos · ✅ 51 · 🚧 4 · 🛠️ 5 · ❔ 0_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
@@ -32,26 +32,25 @@ _Last updated: 2026-10-26 10:17 UTC · 60 repos · ✅ 50 · 🚧 4 · 🛠️ 5
 | [gkepf](https://github.com/gkrishna4346/gkepf) | Portfolio | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/gkepf/) | 2026-10-07 | No description, No license |
 | [iceberg](https://github.com/gkrishna4346/iceberg) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/iceberg/) | 2026-10-18 | No README, No description, No license |
 | [project-planning](https://github.com/gkrishna4346/project-planning) | Work Tools | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/project-planning/) | 2026-08-20 | No README, No description, No license |
-| [autoEDA-studio](https://github.com/gkrishna4346/autoEDA-studio) | AIML Signature | 🚧 In progress | — | 2026-07-12 | No description, No license |
-| [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | — | 2026-08-08 | No README, No description, No license |
+| [autoEDA-studio](https://github.com/gkrishna4346/autoEDA-studio) | AIML Signature | 🚧 In progress | [Open ↗](https://autoeda-studio.streamlit.app/) | 2026-07-12 | No description, No license |
+| [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | [Open ↗](https://kanplan.onrender.com/) | 2026-08-08 | No README, No description, No license |
 | [qubism](https://github.com/gkrishna4346/qubism) | AIML Hobby | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/qubism/) | 2026-10-22 | No README, No description, No license |
 | [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-26 | No description, No license |
-| [paper-mind-js](https://github.com/gkrishna4346/paper-mind-js) | Uncategorized | ❔ Not tagged | — | 2026-10-26 | No description, No license |
-| [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | — | 2026-07-09 | No description, No license |
+| [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | [Open ↗](https://gk-airlines-hr-policy-bot.streamlit.app/) | 2026-07-09 | No description, No license |
 | [articulate](https://github.com/gkrishna4346/articulate) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/articulate/) | 2026-10-18 | No README, No description, No license |
-| [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | — | 2026-10-18 | No description, No license |
+| [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | [Open ↗](https://battery-clinic-ai.streamlit.app/) | 2026-10-18 | No description, No license |
 | [blackjack](https://github.com/gkrishna4346/blackjack) | Games | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/blackjack/) | 2026-07-31 | No README, No description, No license |
-| [buython](https://github.com/gkrishna4346/buython)<br><sub>Project for building a Smart Vending Machine powered by Python</sub> | Pilot | ✅ Completed | — | 2026-06-18 | No license |
-| [Chitti-eCoach](https://github.com/gkrishna4346/Chitti-eCoach) | AI Perso | ✅ Completed | — | 2026-07-16 | No description, No license |
+| [buython](https://github.com/gkrishna4346/buython)<br><sub>Project for building a Smart Vending Machine powered by Python</sub> | Pilot | ✅ Completed | [Open ↗](https://buython.streamlit.app/) | 2026-06-18 | No license |
+| [Chitti-eCoach](https://github.com/gkrishna4346/Chitti-eCoach) | AI Perso | ✅ Completed | [Open ↗](https://chitti-ecoach.onrender.com/) | 2026-07-16 | No description, No license |
 | [est_comp_gk](https://github.com/gkrishna4346/est_comp_gk) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/est_comp_gk/) | 2026-08-08 | No README, No description, No license |
 | [Est_Rev_GK](https://github.com/gkrishna4346/Est_Rev_GK) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/Est_Rev_GK/) | 2026-08-08 | No README, No description, No license |
 | [estimates-comparison_SY](https://github.com/gkrishna4346/estimates-comparison_SY) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/estimates-comparison_SY/) | 2026-07-31 | No README, No description, No license |
-| [gk-eportfolio](https://github.com/gkrishna4346/gk-eportfolio) | Portfolio | ✅ Completed | — | 2026-07-30 | No description, No license |
+| [gk-eportfolio](https://github.com/gkrishna4346/gk-eportfolio) | Portfolio | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/gk-master-repo/) | 2026-07-30 | No description, No license |
 | [gk-master-repo](https://github.com/gkrishna4346/gk-master-repo) | Portfolio | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/gk-master-repo/) | 2026-08-20 | No README, No description, No license |
 | [gkepf_maara](https://github.com/gkrishna4346/gkepf_maara) | Portfolio | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/gkepf_maara/) | 2026-09-06 | No description, No license |
 | [inventory-dashboard](https://github.com/gkrishna4346/inventory-dashboard) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/inventory-dashboard/) | 2026-09-24 | No README, No description, No license |
-| [kural-quest](https://github.com/gkrishna4346/kural-quest) | Tamil Literature | ✅ Completed | — | 2026-06-18 | No README, No description, No license |
-| [kural-thedal](https://github.com/gkrishna4346/kural-thedal) | Tamil Literature | ✅ Completed | — | 2026-06-18 | No README, No description, No license |
+| [kural-quest](https://github.com/gkrishna4346/kural-quest) | Tamil Literature | ✅ Completed | [Open ↗](https://kural-quest.streamlit.app/) | 2026-06-18 | No README, No description, No license |
+| [kural-thedal](https://github.com/gkrishna4346/kural-thedal) | Tamil Literature | ✅ Completed | [Open ↗](https://gkrishna4346-kural-thedal-app-k4n7fp.streamlit.app/) | 2026-06-18 | No README, No description, No license |
 | [kuralum-porulum-html](https://github.com/gkrishna4346/kuralum-porulum-html) | Tamil Literature | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/kuralum-porulum-html/) | 2026-08-14 | No README, No description, No license |
 | [le-petit-bavard](https://github.com/gkrishna4346/le-petit-bavard) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/le-petit-bavard/) | 2026-10-07 | No README, No description, No license |
 | [mindmap-aiml-journey](https://github.com/gkrishna4346/mindmap-aiml-journey)<br><sub>Interactive AI/ML learning platform built with Streamlit</sub> | AIML Signature | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/mindmap-aiml-journey/) | 2026-07-31 | No license |
@@ -67,11 +66,12 @@ _Last updated: 2026-10-26 10:17 UTC · 60 repos · ✅ 50 · 🚧 4 · 🛠️ 5
 | [P7_SuperKart](https://github.com/gkrishna4346/P7_SuperKart) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P7_SuperKart/) | 2026-06-19 | No README, No description, No license |
 | [P8_New-Wheels](https://github.com/gkrishna4346/P8_New-Wheels) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P8_New-Wheels/) | 2026-06-19 | No README, No description, No license |
 | [P9_News-Express](https://github.com/gkrishna4346/P9_News-Express) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P9_News-Express/) | 2026-06-19 | No README, No description, No license |
-| [paper-mind](https://github.com/gkrishna4346/paper-mind) | AIML Signature | ✅ Completed | — | 2026-07-30 | No description, No license |
+| [paper-mind](https://github.com/gkrishna4346/paper-mind) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-ai.onrender.com/) | 2026-07-30 | No description, No license |
+| [paper-mind-js](https://github.com/gkrishna4346/paper-mind-js) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-js.onrender.com/) | 2026-10-26 | No description, No license |
 | [pending-hours](https://github.com/gkrishna4346/pending-hours) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/pending-hours/) | 2026-07-31 | No README, No description, No license |
 | [predictive-maintenance-capstone](https://github.com/gkrishna4346/predictive-maintenance-capstone)<br><sub>Predictive Maintenance using Machine Learning with end-to-end deployment and workflow automation.</sub> | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/predictive-maintenance-capstone/) | 2026-10-03 | No license |
 | [ps](https://github.com/gkrishna4346/ps) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/ps/) | 2026-10-18 | No README, No description, No license |
-| [pulse](https://github.com/gkrishna4346/pulse) | Work Tools | ✅ Completed | — | 2026-07-21 | No description, No license |
+| [pulse](https://github.com/gkrishna4346/pulse) | Work Tools | ✅ Completed | [Open ↗](https://pulse-know-your-speed.streamlit.app/) | 2026-07-21 | No description, No license |
 | [PvA](https://github.com/gkrishna4346/PvA) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/PvA/) | 2026-10-18 | No README, No description, No license |
 | [pvt](https://github.com/gkrishna4346/pvt) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/pvt/) | 2026-07-27 | No README, No description, No license |
 | [repo-lens](https://github.com/gkrishna4346/repo-lens) | Dev Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/repo-lens/) | 2026-10-22 | No README, No description, No license |
