@@ -23,7 +23,7 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-27 12:00 UTC · 63 repos · ✅ 53 · 🚧 4 · 🛠️ 5 · ❔ 1_
+_Last updated: 2026-10-27 12:01 UTC · 62 repos · ✅ 52 · 🚧 4 · 🛠️ 5 · ❔ 1_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
@@ -67,7 +67,6 @@ _Last updated: 2026-10-27 12:00 UTC · 63 repos · ✅ 53 · 🚧 4 · 🛠️ 5
 | [P7_SuperKart](https://github.com/gkrishna4346/P7_SuperKart) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P7_SuperKart/) | 2026-06-19 | No README, No description, No license |
 | [P8_New-Wheels](https://github.com/gkrishna4346/P8_New-Wheels) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P8_New-Wheels/) | 2026-06-19 | No README, No description, No license |
 | [P9_News-Express](https://github.com/gkrishna4346/P9_News-Express) | AIML Academic | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/P9_News-Express/) | 2026-06-19 | No README, No description, No license |
-| [paper-mind-ai](https://github.com/gkrishna4346/paper-mind-ai) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-ai.onrender.com/) | 2026-10-27 | No description, No license |
 | [paper-mind-js](https://github.com/gkrishna4346/paper-mind-js) | AIML Signature | ✅ Completed | [Open ↗](https://paper-mind-js.onrender.com/) | 2026-10-26 | No description, No license |
 | [pending-hours](https://github.com/gkrishna4346/pending-hours) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/pending-hours/) | 2026-07-31 | No README, No description, No license |
 | [powerbi-learning-lab](https://github.com/gkrishna4346/powerbi-learning-lab) | Learning | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/powerbi-learning-lab/) | 2026-10-26 | No README, No description, No license |
