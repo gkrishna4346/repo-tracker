@@ -23,7 +23,7 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-28 07:03 UTC · 63 repos · ✅ 53 · 🚧 4 · 🛠️ 5 · ❔ 1_
+_Last updated: 2026-10-28 07:07 UTC · 63 repos · ✅ 54 · 🚧 4 · 🛠️ 5 · ❔ 0_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
@@ -36,13 +36,13 @@ _Last updated: 2026-10-28 07:03 UTC · 63 repos · ✅ 53 · 🚧 4 · 🛠️ 5
 | [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | [Open ↗](https://kanplan.onrender.com/) | 2026-08-08 | No README, No description, No license |
 | [qubism](https://github.com/gkrishna4346/qubism) | AIML Hobby | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/qubism/) | 2026-10-22 | No README, No description, No license |
 | [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-28 | No description, No license |
-| [common-confusions](https://github.com/gkrishna4346/common-confusions) | Uncategorized | ❔ Not tagged | [Open ↗](https://gkrishna4346.github.io/common-confusions/) | 2026-10-28 | No README, No description, No license |
 | [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | [Open ↗](https://gk-airlines-hr-policy-bot.streamlit.app/) | 2026-07-09 | No description, No license |
 | [articulate](https://github.com/gkrishna4346/articulate) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/articulate/) | 2026-10-18 | No README, No description, No license |
 | [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | [Open ↗](https://battery-clinic-ai.streamlit.app/) | 2026-10-18 | No description, No license |
 | [blackjack](https://github.com/gkrishna4346/blackjack) | Games | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/blackjack/) | 2026-07-31 | No README, No description, No license |
 | [buython](https://github.com/gkrishna4346/buython)<br><sub>Project for building a Smart Vending Machine powered by Python</sub> | Pilot | ✅ Completed | [Open ↗](https://buython.streamlit.app/) | 2026-06-18 | No license |
 | [Chitti-eCoach](https://github.com/gkrishna4346/Chitti-eCoach) | AI Perso | ✅ Completed | [Open ↗](https://chitti-ecoach.onrender.com/) | 2026-07-16 | No description, No license |
+| [common-confusions](https://github.com/gkrishna4346/common-confusions) | AIML Signature | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/common-confusions/) | 2026-10-28 | No README, No description, No license |
 | [est_comp_gk](https://github.com/gkrishna4346/est_comp_gk) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/est_comp_gk/) | 2026-08-08 | No README, No description, No license |
 | [Est_Rev_GK](https://github.com/gkrishna4346/Est_Rev_GK) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/Est_Rev_GK/) | 2026-08-08 | No README, No description, No license |
 | [estimates-comparison_SY](https://github.com/gkrishna4346/estimates-comparison_SY) | Work Tools | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/estimates-comparison_SY/) | 2026-07-31 | No README, No description, No license |
