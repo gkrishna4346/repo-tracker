@@ -1,13 +1,13 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-10-28T06:12:48+00:00",
+  "generated_at": "2026-10-28T07:03:38+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 5,
     "in-progress": 4,
-    "untagged": 0,
+    "untagged": 1,
     "completed": 53,
-    "total": 62
+    "total": 63
   },
   "categories": {
     "AIML Signature": {
@@ -39,6 +39,12 @@
       "in-progress": 1,
       "untagged": 0,
       "completed": 1
+    },
+    "Uncategorized": {
+      "needs-improvement": 0,
+      "in-progress": 0,
+      "untagged": 1,
+      "completed": 0
     },
     "AIML Academic": {
       "needs-improvement": 0,
@@ -122,8 +128,8 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/bibiliogram/",
       "created_at": "2026-10-01T06:41:51Z",
-      "pushed_at": "2026-10-26T15:17:47Z",
-      "days_since_push": 1,
+      "pushed_at": "2026-10-28T07:01:14Z",
+      "days_since_push": 0,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -288,11 +294,35 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/repo-tracker/",
       "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-10-27T12:12:13Z",
+      "pushed_at": "2026-10-28T06:12:49Z",
       "days_since_push": 0,
       "has_readme": true,
       "license": "",
       "warnings": [
+        "No description",
+        "No license"
+      ]
+    },
+    {
+      "name": "common-confusions",
+      "url": "https://github.com/gkrishna4346/common-confusions",
+      "description": "",
+      "status": "untagged",
+      "category": "Uncategorized",
+      "topics": [],
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://gkrishna4346.github.io/common-confusions/",
+      "created_at": "2026-10-28T06:58:06Z",
+      "pushed_at": "2026-10-28T06:59:03Z",
+      "days_since_push": 0,
+      "has_readme": false,
+      "license": "",
+      "warnings": [
+        "No README",
         "No description",
         "No license"
       ]
@@ -570,7 +600,7 @@
       "live_url": "https://gkrishna4346.github.io/gkepf_maara/",
       "created_at": "2026-09-06T04:54:53Z",
       "pushed_at": "2026-09-06T06:53:33Z",
-      "days_since_push": 51,
+      "days_since_push": 52,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -1352,8 +1382,8 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/visualized-git-commands/",
       "created_at": "2026-09-27T09:10:19Z",
-      "pushed_at": "2026-09-28T23:48:00Z",
-      "days_since_push": 29,
+      "pushed_at": "2026-10-28T06:49:12Z",
+      "days_since_push": 0,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1496,8 +1526,8 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/visualized-sql-queries/",
       "created_at": "2026-09-27T11:34:07Z",
-      "pushed_at": "2026-09-28T23:48:54Z",
-      "days_since_push": 29,
+      "pushed_at": "2026-10-28T06:48:28Z",
+      "days_since_push": 0,
       "has_readme": false,
       "license": "",
       "warnings": [
