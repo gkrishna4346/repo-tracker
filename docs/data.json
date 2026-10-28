@@ -1,6 +1,6 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-10-27T12:12:13+00:00",
+  "generated_at": "2026-10-28T06:12:48+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 5,
@@ -99,7 +99,7 @@
       "live_url": "https://gkrishna4346.github.io/atlas/",
       "created_at": "2026-10-22T16:02:49Z",
       "pushed_at": "2026-10-22T16:03:06Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -123,7 +123,7 @@
       "live_url": "https://gkrishna4346.github.io/bibiliogram/",
       "created_at": "2026-10-01T06:41:51Z",
       "pushed_at": "2026-10-26T15:17:47Z",
-      "days_since_push": 0,
+      "days_since_push": 1,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -147,7 +147,7 @@
       "live_url": "https://gkrishna4346.github.io/gkepf/",
       "created_at": "2026-07-26T14:40:28Z",
       "pushed_at": "2026-10-07T17:25:12Z",
-      "days_since_push": 19,
+      "days_since_push": 20,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -170,7 +170,7 @@
       "live_url": "https://gkrishna4346.github.io/iceberg/",
       "created_at": "2026-10-18T16:06:50Z",
       "pushed_at": "2026-10-18T16:07:45Z",
-      "days_since_push": 8,
+      "days_since_push": 9,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -194,7 +194,7 @@
       "live_url": "https://gkrishna4346.github.io/project-planning/",
       "created_at": "2026-08-20T14:41:27Z",
       "pushed_at": "2026-08-20T14:41:55Z",
-      "days_since_push": 67,
+      "days_since_push": 68,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -218,7 +218,7 @@
       "live_url": "https://autoeda-studio.streamlit.app/",
       "created_at": "2026-07-05T09:25:23Z",
       "pushed_at": "2026-07-12T17:51:09Z",
-      "days_since_push": 106,
+      "days_since_push": 107,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -241,7 +241,7 @@
       "live_url": "https://kanplan.onrender.com/",
       "created_at": "2026-08-01T04:38:30Z",
       "pushed_at": "2026-08-08T02:52:04Z",
-      "days_since_push": 80,
+      "days_since_push": 81,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -265,7 +265,7 @@
       "live_url": "https://gkrishna4346.github.io/qubism/",
       "created_at": "2026-10-19T19:51:19Z",
       "pushed_at": "2026-10-22T15:38:22Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -288,7 +288,7 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/repo-tracker/",
       "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-10-27T12:01:46Z",
+      "pushed_at": "2026-10-27T12:12:13Z",
       "days_since_push": 0,
       "has_readme": true,
       "license": "",
@@ -359,7 +359,7 @@
       "live_url": "https://battery-clinic-ai.streamlit.app/",
       "created_at": "2026-10-01T06:58:57Z",
       "pushed_at": "2026-10-18T17:44:46Z",
-      "days_since_push": 8,
+      "days_since_push": 9,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -382,7 +382,7 @@
       "live_url": "https://gkrishna4346.github.io/blackjack/",
       "created_at": "2026-07-31T05:46:55Z",
       "pushed_at": "2026-07-31T05:47:27Z",
-      "days_since_push": 88,
+      "days_since_push": 89,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -406,7 +406,7 @@
       "live_url": "https://buython.streamlit.app/",
       "created_at": "2026-06-15T08:37:06Z",
       "pushed_at": "2026-06-18T03:31:06Z",
-      "days_since_push": 131,
+      "days_since_push": 132,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -451,7 +451,7 @@
       "live_url": "https://gkrishna4346.github.io/est_comp_gk/",
       "created_at": "2026-08-08T05:51:18Z",
       "pushed_at": "2026-08-08T05:54:24Z",
-      "days_since_push": 80,
+      "days_since_push": 81,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -475,7 +475,7 @@
       "live_url": "https://gkrishna4346.github.io/Est_Rev_GK/",
       "created_at": "2026-08-08T05:59:32Z",
       "pushed_at": "2026-08-08T05:59:43Z",
-      "days_since_push": 80,
+      "days_since_push": 81,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -499,7 +499,7 @@
       "live_url": "https://gkrishna4346.github.io/estimates-comparison_SY/",
       "created_at": "2026-07-31T05:50:50Z",
       "pushed_at": "2026-07-31T05:51:03Z",
-      "days_since_push": 88,
+      "days_since_push": 89,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -546,7 +546,7 @@
       "live_url": "https://gkrishna4346.github.io/gk-master-repo/",
       "created_at": "2026-06-17T06:36:49Z",
       "pushed_at": "2026-08-20T15:30:04Z",
-      "days_since_push": 67,
+      "days_since_push": 68,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -617,7 +617,7 @@
       "live_url": "https://kural-quest.streamlit.app/",
       "created_at": "2026-06-17T11:02:16Z",
       "pushed_at": "2026-06-18T05:48:16Z",
-      "days_since_push": 131,
+      "days_since_push": 132,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -641,7 +641,7 @@
       "live_url": "https://gkrishna4346-kural-thedal-app-k4n7fp.streamlit.app/",
       "created_at": "2026-06-18T17:08:22Z",
       "pushed_at": "2026-06-18T17:59:37Z",
-      "days_since_push": 130,
+      "days_since_push": 131,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -665,7 +665,7 @@
       "live_url": "https://gkrishna4346.github.io/kuralum-porulum-html/",
       "created_at": "2026-08-14T18:05:44Z",
       "pushed_at": "2026-08-14T18:22:22Z",
-      "days_since_push": 73,
+      "days_since_push": 74,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -689,7 +689,7 @@
       "live_url": "https://gkrishna4346.github.io/le-petit-bavard/",
       "created_at": "2026-10-07T17:09:47Z",
       "pushed_at": "2026-10-07T17:10:33Z",
-      "days_since_push": 19,
+      "days_since_push": 20,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -735,7 +735,7 @@
       "live_url": "https://gkrishna4346.github.io/mindmap-aiml-journey-html/",
       "created_at": "2026-08-14T18:47:44Z",
       "pushed_at": "2026-08-14T18:48:45Z",
-      "days_since_push": 73,
+      "days_since_push": 74,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1045,7 +1045,7 @@
       "live_url": "https://gkrishna4346.github.io/pending-hours/",
       "created_at": "2026-07-16T08:11:11Z",
       "pushed_at": "2026-07-31T05:31:20Z",
-      "days_since_push": 88,
+      "days_since_push": 89,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1092,7 +1092,7 @@
       "live_url": "https://gkrishna4346.github.io/powerbi-learning-lab/",
       "created_at": "2026-10-26T15:06:26Z",
       "pushed_at": "2026-10-26T15:15:19Z",
-      "days_since_push": 0,
+      "days_since_push": 1,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1116,7 +1116,7 @@
       "live_url": "https://gkrishna4346.github.io/predictive-maintenance-capstone/",
       "created_at": "2026-06-07T08:36:27Z",
       "pushed_at": "2026-10-03T23:26:33Z",
-      "days_since_push": 23,
+      "days_since_push": 24,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -1162,7 +1162,7 @@
       "live_url": "https://pulse-know-your-speed.streamlit.app/",
       "created_at": "2026-07-19T17:45:59Z",
       "pushed_at": "2026-07-21T04:44:30Z",
-      "days_since_push": 98,
+      "days_since_push": 99,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -1233,7 +1233,7 @@
       "live_url": "https://gkrishna4346.github.io/repo-lens/",
       "created_at": "2026-10-22T16:01:08Z",
       "pushed_at": "2026-10-22T16:01:40Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1281,7 +1281,7 @@
       "live_url": "https://gkrishna4346.github.io/tableau-learning-lab/",
       "created_at": "2026-10-22T15:55:47Z",
       "pushed_at": "2026-10-26T15:05:41Z",
-      "days_since_push": 0,
+      "days_since_push": 1,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1305,7 +1305,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-data-science/",
       "created_at": "2026-10-19T18:59:24Z",
       "pushed_at": "2026-10-19T18:59:46Z",
-      "days_since_push": 7,
+      "days_since_push": 8,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1329,7 +1329,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-excel-functions/",
       "created_at": "2026-09-28T23:49:26Z",
       "pushed_at": "2026-09-28T23:49:49Z",
-      "days_since_push": 28,
+      "days_since_push": 29,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1353,7 +1353,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-git-commands/",
       "created_at": "2026-09-27T09:10:19Z",
       "pushed_at": "2026-09-28T23:48:00Z",
-      "days_since_push": 28,
+      "days_since_push": 29,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1377,7 +1377,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-javascript-coding/",
       "created_at": "2026-10-26T15:04:14Z",
       "pushed_at": "2026-10-26T15:04:43Z",
-      "days_since_push": 0,
+      "days_since_push": 1,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1401,7 +1401,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-ml-dl/",
       "created_at": "2026-10-22T15:42:30Z",
       "pushed_at": "2026-10-22T15:42:51Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1425,7 +1425,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-nlp-llm/",
       "created_at": "2026-10-22T15:43:32Z",
       "pushed_at": "2026-10-22T15:43:52Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1449,7 +1449,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-python-codings/",
       "created_at": "2026-09-28T23:50:22Z",
       "pushed_at": "2026-10-19T18:32:39Z",
-      "days_since_push": 7,
+      "days_since_push": 8,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1473,7 +1473,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-shell-commands/",
       "created_at": "2026-10-01T06:07:40Z",
       "pushed_at": "2026-10-01T06:08:03Z",
-      "days_since_push": 26,
+      "days_since_push": 27,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1497,7 +1497,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-sql-queries/",
       "created_at": "2026-09-27T11:34:07Z",
       "pushed_at": "2026-09-28T23:48:54Z",
-      "days_since_push": 28,
+      "days_since_push": 29,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1521,7 +1521,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-statistics/",
       "created_at": "2026-10-22T15:47:17Z",
       "pushed_at": "2026-10-22T15:48:04Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1545,7 +1545,7 @@
       "live_url": "https://gkrishna4346.github.io/visualized-vba/",
       "created_at": "2026-10-22T15:39:17Z",
       "pushed_at": "2026-10-22T15:39:33Z",
-      "days_since_push": 4,
+      "days_since_push": 5,
       "has_readme": false,
       "license": "",
       "warnings": [
