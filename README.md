@@ -23,19 +23,19 @@ The tracker also adds automatic **health warnings**: no README, no description, 
 ## Current status
 
 <!-- TRACKER:START -->
-_Last updated: 2026-10-28 07:07 UTC · 63 repos · ✅ 54 · 🚧 4 · 🛠️ 5 · ❔ 0_
+_Last updated: 2026-10-29 06:21 UTC · 63 repos · ✅ 54 · 🚧 4 · 🛠️ 5 · ❔ 0_
 
 | Repository | Category | Status | Live | Last push | Health |
 |---|---|---|---|---|---|
 | [atlas](https://github.com/gkrishna4346/atlas) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/atlas/) | 2026-10-22 | No README, No description, No license |
-| [bibiliogram](https://github.com/gkrishna4346/bibiliogram) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/bibiliogram/) | 2026-10-28 | No README, No description, No license |
+| [bibiliogram](https://github.com/gkrishna4346/bibiliogram) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/bibiliogram/) | 2026-10-28 | No README, No description |
 | [gkepf](https://github.com/gkrishna4346/gkepf) | Portfolio | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/gkepf/) | 2026-10-07 | No description, No license |
 | [iceberg](https://github.com/gkrishna4346/iceberg) | AIML Signature | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/iceberg/) | 2026-10-18 | No README, No description, No license |
 | [project-planning](https://github.com/gkrishna4346/project-planning) | Work Tools | 🛠️ Needs improvement | [Open ↗](https://gkrishna4346.github.io/project-planning/) | 2026-08-20 | No README, No description, No license |
 | [autoEDA-studio](https://github.com/gkrishna4346/autoEDA-studio) | AIML Signature | 🚧 In progress | [Open ↗](https://autoeda-studio.streamlit.app/) | 2026-07-12 | No description, No license |
 | [kanplan](https://github.com/gkrishna4346/kanplan) | Work Tools | 🚧 In progress | [Open ↗](https://kanplan.onrender.com/) | 2026-08-08 | No README, No description, No license |
 | [qubism](https://github.com/gkrishna4346/qubism) | AIML Hobby | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/qubism/) | 2026-10-22 | No README, No description, No license |
-| [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-28 | No description, No license |
+| [repo-tracker](https://github.com/gkrishna4346/repo-tracker) | Dev Tools | 🚧 In progress | [Open ↗](https://gkrishna4346.github.io/repo-tracker/) | 2026-10-28 | No description |
 | [Airlines-QA-Bot](https://github.com/gkrishna4346/Airlines-QA-Bot) | AIML Academic | ✅ Completed | [Open ↗](https://gk-airlines-hr-policy-bot.streamlit.app/) | 2026-07-09 | No description, No license |
 | [articulate](https://github.com/gkrishna4346/articulate) | AI Language | ✅ Completed | [Open ↗](https://gkrishna4346.github.io/articulate/) | 2026-10-18 | No README, No description, No license |
 | [battery-clinic-ai](https://github.com/gkrishna4346/battery-clinic-ai) | AIML Signature | ✅ Completed | [Open ↗](https://battery-clinic-ai.streamlit.app/) | 2026-10-18 | No description, No license |
