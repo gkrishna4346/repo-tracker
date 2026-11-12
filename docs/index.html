@@ -136,6 +136,30 @@
   footer { margin-top: 28px; font-size: 12.5px; color: var(--muted); line-height: 1.7; }
   code { font-family: "JetBrains Mono", monospace; font-size: 12px; background: var(--surface-2); border: 1px solid var(--border); padding: 0 5px; border-radius: 4px; }
 
+  /* ---------- Template Coding modal ---------- */
+  .modal-bg { position: fixed; inset: 0; z-index: 30; background: rgba(5,15,35,.55); display: grid; place-items: center; padding: 16px; }
+  .modal-bg[hidden] { display: none; }
+  .modal { width: min(1000px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+  .modal-hd { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+  .modal-hd h2 { margin: 0; font-size: 18px; color: var(--title); }
+  .modal .hint { color: var(--muted); font-size: 13px; margin: 2px 0 10px; }
+  .chk { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 10px; cursor: pointer; }
+  .modal-body { border: 1px solid var(--border); border-radius: 10px; overflow: auto; }
+  .modal-body table { font-size: 13.5px; }
+  .modal-body td { padding: 8px 10px; vertical-align: middle; }
+  .modal-body thead th { padding: 9px 10px; }
+  .modal-body input, .modal-body select { width: 100%; min-width: 140px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 7px; padding: 7px 9px; font: inherit; font-size: 13.5px; }
+  .modal-body input:focus, .modal-body select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .modal-body tr.filled td:first-child { box-shadow: inset 3px 0 0 var(--s-completed); }
+  .modal-body .have { font-size: 12.5px; word-break: break-all; }
+  .modal-ft { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+  .btn { border: 0; background: var(--accent); color: #fff; font-weight: 600; padding: 9px 16px; border-radius: 9px; cursor: pointer; }
+  :root[data-theme="dark"] .btn { color: #0a1a33; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn { color: #0a1a33; } }
+  .btn-2 { background: var(--surface-2); color: var(--text) !important; border: 1px solid var(--border); padding: 6px 12px; }
+  .out-hd { display: flex; justify-content: space-between; align-items: center; margin: 16px 0 8px; }
+  #tplCode { margin: 0; background: #071226; color: #e6edf7; border-radius: 10px; padding: 14px; font: 12.5px/1.6 "JetBrains Mono", monospace; overflow: auto; white-space: pre; }
+
   @media (max-width: 1000px) { .charts { grid-template-columns: 1fr; } }
   @media (max-width: 720px) {
     .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -156,6 +180,9 @@
         <button data-view="table" aria-pressed="true">Table</button>
         <button data-view="cards" aria-pressed="false">Cards</button>
       </div>
+      <button class="icon-btn" id="tplBtn" aria-label="Template Coding" title="Template Coding: generate tagging commands">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+      </button>
       <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Toggle light / dark"></button>
     </div>
   </header>
@@ -206,6 +233,35 @@
   </footer>
 </div>
 <div class="tip" id="tip"></div>
+
+<div class="modal-bg" id="tplModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tplTitle">
+    <div class="modal-hd">
+      <div>
+        <h2 id="tplTitle">Template Coding</h2>
+        <p class="hint">Fill in the repos below, then generate the commands to run in Terminal.</p>
+      </div>
+      <button class="icon-btn" id="tplClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <label class="chk"><input type="checkbox" id="tplAll"> Also show repos that are already tagged (to change them)</label>
+    <div class="modal-body" id="tplBody"></div>
+    <datalist id="catList"></datalist>
+    <div class="modal-ft">
+      <span class="muted" id="tplMsg"></span>
+      <button class="btn" id="tplGen">Generate commands</button>
+    </div>
+    <div id="tplOut" hidden>
+      <div class="out-hd">
+        <b>Paste this into Terminal</b>
+        <button class="btn btn-2" id="tplCopy">Copy</button>
+      </div>
+      <pre id="tplCode"></pre>
+      <p class="hint" style="margin:8px 0 0">The last line starts the dashboard refresh on GitHub. After about 1–2 minutes, reload this page with Cmd + Shift + R.</p>
+    </div>
+  </div>
+</div>
 
 <script>
 const STATUSES = ["completed", "in-progress", "needs-improvement", "untagged"];
@@ -409,6 +465,101 @@ document.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
   state.view = b.dataset.view; store.set("rt-view", state.view); paintView(); if (DATA) renderList();
 });
 paintView();
+
+/* ---------- Template Coding ---------- */
+const TRACKER_REPO = location.pathname.split("/").filter(Boolean)[0] || "repo-tracker";
+const slugCat = s => String(s || "").trim().toLowerCase().replace(/^cat[-\s]+/, "").replace(/[\s_]+/g, "-").replace(/[^a-z0-9-]/g, "").replace(/-+/g, "-").replace(/^-|-$/g, "");
+const cleanUrl = s => {
+  s = String(s || "").trim().replace(/["'`$\\\s]/g, "");
+  if (!s) return "";
+  return /^https?:\/\//i.test(s) ? s : "https://" + s;
+};
+const needsTagging = r => r.status === "untagged" || r.category === "Uncategorized";
+
+function openTemplate() {
+  if (!DATA) return;
+  $("catList").innerHTML = [...new Set(DATA.repos.map(r => r.category).filter(c => c !== "Uncategorized"))]
+    .sort().map(c => `<option value="${esc(c)}">`).join("");
+  renderTemplateRows();
+  $("tplOut").hidden = true; $("tplMsg").textContent = "";
+  $("tplModal").hidden = false;
+  const first = $("tplBody").querySelector("input, select"); if (first) first.focus();
+}
+function closeTemplate() { $("tplModal").hidden = true; $("tplBtn").focus(); }
+
+function renderTemplateRows() {
+  const showAll = $("tplAll").checked;
+  const rows = DATA.repos.filter(r => showAll || needsTagging(r)).sort(SORTERS.name);
+  if (!rows.length) {
+    $("tplBody").innerHTML = `<div class="empty" style="padding:28px 16px">All repos are tagged. Tick the box above to change an existing repo.</div>`;
+    $("tplGen").disabled = true; return;
+  }
+  $("tplGen").disabled = false;
+  $("tplBody").innerHTML = `<table>
+    <thead><tr><th>Repo</th><th>Category</th><th>Status</th><th>Live link</th></tr></thead>
+    <tbody>${rows.map(r => `<tr data-name="${esc(r.name)}">
+      <td><b>${esc(r.name)}</b></td>
+      <td><input list="catList" data-f="cat" placeholder="e.g. Work Tools" value="${r.category === "Uncategorized" ? "" : esc(r.category)}"></td>
+      <td><select data-f="status">
+        <option value="">— choose —</option>
+        ${["completed", "in-progress", "needs-improvement"].map(s => `<option value="${s}" ${r.status === s ? "selected" : ""}>${LABELS[s]}</option>`).join("")}
+      </select></td>
+      <td>${r.live_url
+        ? `<span class="have"><a href="${esc(r.live_url)}" target="_blank" rel="noopener">${esc(r.live_url.replace(/^https?:\/\//, ""))}</a></span>`
+        : `<input data-f="live" type="url" placeholder="https://… (optional)">`}</td>
+    </tr>`).join("")}</tbody></table>`;
+  $("tplBody").querySelectorAll("input, select").forEach(el => el.addEventListener("input", () => {
+    const tr = el.closest("tr");
+    tr.classList.toggle("filled", [...tr.querySelectorAll("input, select")].some(x => x.value.trim()));
+  }));
+}
+
+function generateTemplate() {
+  const owner = DATA.owner, lines = [], problems = [];
+  $("tplBody").querySelectorAll("tbody tr").forEach(tr => {
+    const r = DATA.repos.find(x => x.name === tr.dataset.name);
+    const get = f => { const el = tr.querySelector(`[data-f="${f}"]`); return el ? el.value.trim() : ""; };
+    const args = [];
+    const newCat = slugCat(get("cat")), oldCat = r.category === "Uncategorized" ? "" : slugCat(r.category);
+    if (newCat && newCat !== oldCat) {
+      if (oldCat) args.push(`--remove-topic cat-${oldCat}`);
+      args.push(`--add-topic cat-${newCat}`);
+    }
+    const st = get("status"), oldSt = r.status === "untagged" ? "" : r.status;
+    if (st && st !== oldSt) {
+      if (oldSt) args.push(`--remove-topic status-${oldSt}`);
+      args.push(`--add-topic status-${st}`);
+    }
+    const raw = get("live"), url = cleanUrl(raw);
+    if (raw && !/^https?:\/\/[^\s/]+\.[^\s]+/i.test(url)) problems.push(r.name);
+    else if (url) args.push(`--homepage "${url}"`);
+    if (args.length) lines.push(`gh repo edit ${owner}/${r.name} ${args.join(" ")}`);
+  });
+  if (problems.length) { $("tplMsg").textContent = `Check the live link for: ${problems.join(", ")}`; return; }
+  if (!lines.length) { $("tplMsg").textContent = "Nothing to change yet. Fill in at least one repo."; $("tplOut").hidden = true; return; }
+  $("tplMsg").textContent = `${lines.length} repo${lines.length > 1 ? "s" : ""} ready`;
+  $("tplCode").textContent =
+    `# Template Coding · ${new Date().toLocaleString()}\n` + lines.join("\n") +
+    `\n\n# Refresh the dashboard\ngh workflow run update-tracker.yml -R ${owner}/${TRACKER_REPO}\n`;
+  $("tplOut").hidden = false;
+  $("tplOut").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+$("tplBtn").onclick = openTemplate;
+$("tplClose").onclick = closeTemplate;
+$("tplModal").addEventListener("click", e => { if (e.target.id === "tplModal") closeTemplate(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("tplModal").hidden) closeTemplate(); });
+$("tplAll").onchange = () => { renderTemplateRows(); $("tplOut").hidden = true; $("tplMsg").textContent = ""; };
+$("tplGen").onclick = generateTemplate;
+$("tplCopy").onclick = async () => {
+  const txt = $("tplCode").textContent;
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) {
+    const r = document.createRange(); r.selectNodeContents($("tplCode"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand("copy");
+  }
+  $("tplCopy").textContent = "Copied ✓"; setTimeout(() => $("tplCopy").textContent = "Copy", 1600);
+};
 
 /* ---------- Load ---------- */
 fetch("data.json", { cache: "no-store" })
