@@ -1,13 +1,13 @@
 {
   "owner": "gkrishna4346",
-  "generated_at": "2026-11-26T08:50:44+00:00",
+  "generated_at": "2026-11-26T10:43:14+00:00",
   "stale_days": 180,
   "counts": {
     "needs-improvement": 6,
     "in-progress": 4,
-    "untagged": 0,
+    "untagged": 1,
     "completed": 55,
-    "total": 65
+    "total": 66
   },
   "categories": {
     "AIML Signature": {
@@ -45,6 +45,12 @@
       "in-progress": 1,
       "untagged": 0,
       "completed": 1
+    },
+    "Uncategorized": {
+      "needs-improvement": 0,
+      "in-progress": 0,
+      "untagged": 1,
+      "completed": 0
     },
     "AIML Academic": {
       "needs-improvement": 0,
@@ -129,7 +135,7 @@
       "live_url": "https://gkrishna4346.github.io/bibiliogram/",
       "created_at": "2026-10-01T06:41:51Z",
       "pushed_at": "2026-10-28T08:50:23Z",
-      "days_since_push": 28,
+      "days_since_push": 29,
       "has_readme": false,
       "license": "MIT",
       "warnings": [
@@ -317,12 +323,35 @@
       "is_fork": false,
       "live_url": "https://gkrishna4346.github.io/repo-tracker/",
       "created_at": "2026-10-23T16:22:41Z",
-      "pushed_at": "2026-11-25T09:02:12Z",
+      "pushed_at": "2026-11-26T08:50:45Z",
       "days_since_push": 0,
       "has_readme": true,
       "license": "MIT",
       "warnings": [
         "No description"
+      ]
+    },
+    {
+      "name": "bg-master",
+      "url": "https://github.com/gkrishna4346/bg-master",
+      "description": "",
+      "status": "untagged",
+      "category": "Uncategorized",
+      "topics": [],
+      "language": "HTML",
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "is_fork": false,
+      "live_url": "https://gkrishna4346.github.io/bg-master/",
+      "created_at": "2026-11-26T09:07:30Z",
+      "pushed_at": "2026-11-26T10:22:34Z",
+      "days_since_push": 0,
+      "has_readme": true,
+      "license": "",
+      "warnings": [
+        "No description",
+        "No license"
       ]
     },
     {
@@ -645,7 +674,7 @@
       "live_url": "https://gkrishna4346.github.io/inventory-dashboard/",
       "created_at": "2026-09-24T09:00:23Z",
       "pushed_at": "2026-09-24T09:04:42Z",
-      "days_since_push": 62,
+      "days_since_push": 63,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -858,7 +887,7 @@
       "live_url": "https://gkrishna4346.github.io/P1_Food-Hub/",
       "created_at": "2026-06-19T10:27:30Z",
       "pushed_at": "2026-06-19T10:32:56Z",
-      "days_since_push": 159,
+      "days_since_push": 160,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -882,7 +911,7 @@
       "live_url": "https://gkrishna4346.github.io/P2_Personal-Loan-Campaign/",
       "created_at": "2026-06-19T10:34:34Z",
       "pushed_at": "2026-06-19T10:35:02Z",
-      "days_since_push": 159,
+      "days_since_push": 160,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -906,7 +935,7 @@
       "live_url": "https://gkrishna4346.github.io/P3_Easy-Visa/",
       "created_at": "2026-06-19T10:37:33Z",
       "pushed_at": "2026-06-19T10:37:51Z",
-      "days_since_push": 159,
+      "days_since_push": 160,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -930,7 +959,7 @@
       "live_url": "https://gkrishna4346.github.io/P4_Bank-Churn-Predict/",
       "created_at": "2026-06-19T10:38:58Z",
       "pushed_at": "2026-06-19T10:39:13Z",
-      "days_since_push": 159,
+      "days_since_push": 160,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -954,7 +983,7 @@
       "live_url": "https://gkrishna4346.github.io/P5_Medical-Assistant/",
       "created_at": "2026-06-19T10:41:12Z",
       "pushed_at": "2026-06-19T10:41:44Z",
-      "days_since_push": 159,
+      "days_since_push": 160,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1074,7 +1103,7 @@
       "live_url": "https://paper-mind-js.onrender.com/",
       "created_at": "2026-10-26T08:50:24Z",
       "pushed_at": "2026-10-26T10:07:47Z",
-      "days_since_push": 30,
+      "days_since_push": 31,
       "has_readme": true,
       "license": "",
       "warnings": [
@@ -1190,7 +1219,7 @@
       "live_url": "https://gkrishna4346.github.io/ps/",
       "created_at": "2026-09-20T11:21:45Z",
       "pushed_at": "2026-10-18T09:25:26Z",
-      "days_since_push": 38,
+      "days_since_push": 39,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1237,7 +1266,7 @@
       "live_url": "https://gkrishna4346.github.io/PvA/",
       "created_at": "2026-08-08T05:56:38Z",
       "pushed_at": "2026-10-18T09:26:17Z",
-      "days_since_push": 38,
+      "days_since_push": 39,
       "has_readme": false,
       "license": "",
       "warnings": [
@@ -1261,7 +1290,7 @@
       "live_url": "https://gkrishna4346.github.io/pvt/",
       "created_at": "2026-07-27T09:05:55Z",
       "pushed_at": "2026-07-27T10:24:54Z",
-      "days_since_push": 121,
+      "days_since_push": 122,
       "has_readme": false,
       "license": "",
       "warnings": [
